@@ -1,13 +1,23 @@
 ﻿button.MainButton {
-    background-color: #FF0000;
+    background-color: #CE8D41;
     color: white;
+    border-radius: 0;
+    font-size:large;
+}
+label {
+    color: white;
+}
+Grid{
+    column-gap: 0;
+    row-gap:0;
 }
 
 
-<color name="paleBrown">#B8936E</color>
+
+/*<color name="paleBrown">#B8936E</color>
     <color name="darkBrown">#663425</color>
     <color name="transparent">#00000000 </color>
     <color name="red">#FF0000 </color>
     <color name="paleOrange">#CE8D41</color>
     <color name="paleRed">#BF3C49</color>
-    <color name="cream">#ecdccc</color>
+    <color name="cream">#ecdccc</color>*/
