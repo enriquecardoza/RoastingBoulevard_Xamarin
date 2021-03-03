@@ -1,28 +1,28 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RoastingBoulevard.MainPage">
+             x:Class="RoastingBoulevard.MainPage"
+             Title="Init">
 
     <ContentPage.Resources>
         <StyleSheet Source="Styles/DefaultStyles.css"/>
 
     </ContentPage.Resources>
     <Grid
-        RowDefinitions="15*, 10*, 5*, 50*, 5*,5*,10*"
+        RowDefinitions="15*, 10*, 5*, 40*, 5*,5*"
         ColumnDefinitions="*">
         <Grid RowDefinitions="*, *"
-        ColumnDefinitions="70*,30*" BackgroundColor="#B8936E" Padding="10">
-            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" />
-            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" />
-            <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1" />
+        ColumnDefinitions="70*,30*" BackgroundColor="#B8936E" >
+            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground"/>
+            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" />
+            <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
         </Grid>
 
-        <Button Text="Empezar orden" StyleClass="MainButton" Grid.Row="1"/>
-        <Label Text="Donde estamos?" Grid.Row="2" />
+        <Button Text="Empezar orden" StyleClass="MainButton" Grid.Row="1"  />
+        <Label Text="Donde estamos?" Grid.Row="2" StyleClass="TextClearBackground" />
         <BoxView Grid.Row="3" BackgroundColor="AliceBlue"/>
-        <Label Text="Calle falsa n 123" Grid.Row="4"/>
-        <Label Text="Springfield 24530" Grid.Row="5"/>
-        <Button Text="ddd" StyleClass="MainButton" Grid.Row="6"/>
+        <Label Text="Calle falsa n 123" Grid.Row="4" StyleClass="TextClearBackground"/>
+        <Label Text="Springfield 24530" Grid.Row="5" StyleClass="TextClearBackground"/>
     </Grid>
 
 </ContentPage>

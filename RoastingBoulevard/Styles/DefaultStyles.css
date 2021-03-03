@@ -1,11 +1,18 @@
-﻿button.MainButton {
+﻿
+
+button.MainButton {
     background-color: #CE8D41;
     color: white;
     border-radius: 0;
-    font-size:large;
+    font-size: large;
 }
-label {
+label.TextClearBackground {
+    color: #131313;
+    margin:10;
+}
+label.TextDarkBackground {
     color: white;
+    margin: 10;
 }
 Grid{
     column-gap: 0;

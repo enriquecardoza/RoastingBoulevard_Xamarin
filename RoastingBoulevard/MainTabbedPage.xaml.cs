@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace RoastingBoulevard
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MyTabbedPage : TabbedPage
+    public partial class MainTabbedPage : TabbedPage
     {
-        public MyTabbedPage()
+        public MainTabbedPage()
         {
             InitializeComponent();
         }
