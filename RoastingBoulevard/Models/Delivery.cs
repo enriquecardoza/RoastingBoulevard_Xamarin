@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoasingBoulevard_Xamarin.Classes
+namespace RoasingBoulevard_Xamarin.Models
 {
     public class Delivery
     {

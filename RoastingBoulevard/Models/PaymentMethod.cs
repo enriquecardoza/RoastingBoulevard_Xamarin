@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RoasingBoulevard_Xamarin.Classes
+namespace RoasingBoulevard_Xamarin.Models
 {
     public class PaymentMethod
     {

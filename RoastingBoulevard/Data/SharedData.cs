@@ -1,0 +1,14 @@
+﻿using System;
+using RoasingBoulevard_Xamarin.Models;
+
+namespace RoastingBoulevard.Data
+{
+    public static class AppData
+    {
+        public static User user;
+        public static bool loggedUser=> user != null;
+        public static Delivery actualDelivery;
+        public static Delivery deliveringDelivery;
+        public static bool delivering => deliveringDelivery != null;
+    }
+}

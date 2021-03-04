@@ -9,5 +9,9 @@
             <Setter Property="TextColor" Value="White" />
             <Setter Property="Background" Value="Aqua"/>
         </Style>
+         <Style TargetType="Label" x:Key="LabelDefault" >
+            <Setter Property="Padding" Value="10" />
+             <Setter Property="VerticalOptions" Value="Center"/>
+        </Style>
     </Application.Resources>
 </Application>

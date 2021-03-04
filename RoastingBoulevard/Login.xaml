@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RoastingBoulevard.Login">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="Styles/DefaultStyles.css"/>
+
+    </ContentPage.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="15*" />
+            <RowDefinition Height="90*" />
+        </Grid.RowDefinitions>
+        <Grid RowDefinitions="*" ColumnDefinitions="50*,60*" Grid.Row="0" BackgroundColor="Tan" StyleClass="SubGrid">
+            <Label Text="Access to your profile" StyleClass="TextDarkBackground" Grid.Column="0"/>
+            <Image Source="icon.png" Grid.Column="1" HorizontalOptions="EndAndExpand"/>
+        </Grid >
+        <Grid Grid.Row="1" ColumnDefinitions="*" RowDefinitions="5*,5*,5*,2*,5*,40*" StyleClass="SubGrid">
+            <Label Text="Please introduce your data" Grid.Row="0" HorizontalOptions="StartAndExpand" VerticalOptions="Center"
+               />
+            <Entry Placeholder="Email" Grid.Row="1"/>
+            <Entry Placeholder="Password" Grid.Row="2"/>
+            <Button Text="Forgot password?" Grid.Row="3" TextColor="Black" FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start"/>
+            <Button Text="Login" Grid.Row="4" StyleClass="MainButton" />
+            <Grid BackgroundColor="AntiqueWhite" Grid.Row="5" RowDefinitions="10*,30*,10*,10*,10*" ColumnDefinitions="*" >
+                <Image Source="icon.png" Grid.Row="1"/>
+                <Label Text="What are you waiting for register?" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" StyleClass="TextClearBackground"/>
+                <Button Text="Register" StyleClass="MainButton" Grid.Row="3" HorizontalOptions="Center" WidthRequest="300"/>
+            </Grid>
+        </Grid>
+    </Grid>
+
+</ContentPage>

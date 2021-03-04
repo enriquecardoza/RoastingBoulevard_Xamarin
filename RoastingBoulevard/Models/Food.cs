@@ -2,7 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 
-namespace RoasingBoulevard_Xamarin.Classes
+namespace RoasingBoulevard_Xamarin.Models
 {
     public class Food
     {

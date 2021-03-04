@@ -1,5 +1,8 @@
 ﻿
-
+label {
+    padding: 10;
+    VerticalOptions: Center;
+}
 button.MainButton {
     background-color: #CE8D41;
     color: white;
@@ -18,13 +21,18 @@ Grid{
     column-gap: 0;
     row-gap:0;
 }
+Grid.SubGrid {
+    column-gap: 10;
+    row-gap: 10;
+    padding:10;
+}
 
-
-
-/*<color name="paleBrown">#B8936E</color>
+/*<color name="paleBrown">#B8936E</color> Tan 
     <color name="darkBrown">#663425</color>
     <color name="transparent">#00000000 </color>
     <color name="red">#FF0000 </color>
     <color name="paleOrange">#CE8D41</color>
     <color name="paleRed">#BF3C49</color>
-    <color name="cream">#ecdccc</color>*/
+    <color name="cream">#ecdccc</color>AntiqueWhite
+
+*/ 
