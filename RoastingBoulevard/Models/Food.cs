@@ -7,12 +7,15 @@ namespace RoasingBoulevard_Xamarin.Models
     public class Food
     {
        public int id;
-       public string name;
-       public string description;
+        private string name;
+        public string description;
        public string ingredients;
        public List<Allergen> allergens=new List<Allergen>();
-       public string photo;
-       public float price;
+        private string photo;
+        public float price;
+
+        public string Name { get => name; set => name = value; }
+        public string Photo { get => photo; set => photo = value; }
 
         public enum Allergen
         {
@@ -25,11 +28,11 @@ namespace RoasingBoulevard_Xamarin.Models
         public Food(int id, string name, string description, string ingredients, List<Allergen> allergens, string photo, float price)
         {
             this.id = id;
-            this.name = name;
+            this.Name = name;
             this.description = description;
             this.ingredients = ingredients;
             this.allergens = allergens;
-            this.photo = photo;
+            this.Photo = photo;
             this.price = price;
         }
 
