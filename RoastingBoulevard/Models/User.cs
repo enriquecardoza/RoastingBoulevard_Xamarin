@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace RoasingBoulevard_Xamarin.Models
+namespace RoastingBoulevard.Models
 {
     public class User
     {

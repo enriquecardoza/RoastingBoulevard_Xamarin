@@ -1,5 +1,5 @@
 ﻿using System;
-namespace RoasingBoulevard_Xamarin.Models
+namespace RoastingBoulevard.Models
 {
     public class Address
     {

@@ -1,5 +1,5 @@
 ﻿using System;
-using RoasingBoulevard_Xamarin.Models;
+using RoastingBoulevard.Models;
 
 namespace RoastingBoulevard.Models
 {
