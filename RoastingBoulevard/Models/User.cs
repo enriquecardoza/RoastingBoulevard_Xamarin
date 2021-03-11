@@ -10,6 +10,7 @@ namespace RoastingBoulevard.Models
         public string surname;
         public string email;
         public int phone;
+        public string password;
         public List<Address> addresses = new List<Address>();
         public List<Delivery> deliveries = new List<Delivery>();
 
