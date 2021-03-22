@@ -29,7 +29,7 @@ namespace RoastingBoulevard.ViewModels
             set
             {
                 this._foods = value;
-                OnPropertyChanged("Food");
+                OnPropertyChanged(nameof(Foods));
             }
         }
 

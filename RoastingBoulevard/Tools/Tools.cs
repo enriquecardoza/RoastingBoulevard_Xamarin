@@ -1,10 +1,11 @@
 ﻿using System;
 using System.Globalization;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace RoastingBoulevard.Tools
 {
-    public static class Tools
+    public class Tools
     {
         public static bool IsValidEmail(string email)
         {
@@ -29,11 +30,11 @@ namespace RoastingBoulevard.Tools
                     return match.Groups[1].Value + domainName;
                 }
             }
-            catch (RegexMatchTimeoutException e)
+            catch (RegexMatchTimeoutException)
             {
                 return false;
             }
-            catch (ArgumentException e)
+            catch (ArgumentException)
             {
                 return false;
             }

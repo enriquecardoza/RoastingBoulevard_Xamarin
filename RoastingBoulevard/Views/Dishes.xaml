@@ -1,7 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RoastingBoulevard.Dishes" Title="Dishes" >
+<TabbedPage
 
-    <StackLayout>
+    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RoastingBoulevard.Views.Dishes" x:Class="RoastingBoulevard.Views.Dishes" BarTextColor="#000000" BarBackgroundColor="#ECDCCC" NavigationPage.HasBackButton="False"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+android:TabbedPage.ToolbarPlacement="Bottom" SelectedTabColor="#CE8D41" TabIndex="0" x:Name="tabPageDishes" Title="Platos">
+
+
+
+</TabbedPage>
+
+    <!--
+ <StackLayout>
         <ListView x:Name="foodListView" HasUnevenRows="True" Margin="10" SeparatorVisibility="None">
             <ListView.ItemTemplate >
                 <DataTemplate>
@@ -32,5 +41,4 @@
             </ListView.ItemTemplate>
         </ListView>
     </StackLayout>
-
-</ContentPage>
+-->

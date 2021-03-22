@@ -1,11 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RoastingBoulevard.MainPage"
-             Title="Init">
+             x:Class="RoastingBoulevard.Views.MainPage"
+             Title="Inicio">
 
     <ContentPage.Resources>
-        <StyleSheet Source="Styles/DefaultStyles.css"/>
+        <StyleSheet Source="../Styles/DefaultStyles.css"/>
 
     </ContentPage.Resources>
     <Grid

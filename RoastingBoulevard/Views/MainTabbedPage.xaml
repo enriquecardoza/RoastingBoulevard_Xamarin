@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TabbedPage
+
+    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+    x:Class="RoastingBoulevard.Views.MainTabbedPage"
+   NavigationPage.HasBackButton="False"
+    xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" android:TabbedPage.ToolbarPlacement="Bottom"
+    xmlns:local="clr-namespace:RoastingBoulevard.Views"
+     SelectedTabColor="#CE8D41" TabIndex="0" 
+    BarTextColor="#000000" BarBackgroundColor="#ECDCCC"
+    >
+    <local:MainPage/>
+    <local:Dishes/>
+    <local:Login/>
+</TabbedPage>
+
+

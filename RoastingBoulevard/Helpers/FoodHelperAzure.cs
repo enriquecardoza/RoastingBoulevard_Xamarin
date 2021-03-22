@@ -11,30 +11,22 @@ namespace RoastingBoulevard.Helpers
 {
     class FoodHelperAzure
     {
-        private const string DireccionApi = "https://apicruddoctores.azurewebsites.net/";
-        private const string ControllerApi = "api/foods";
-        private HttpClient CrearCliente()
-        {
-            HttpClient clientehttp = new HttpClient();
-            clientehttp.DefaultRequestHeaders.Accept.Clear();
-            clientehttp.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-            return clientehttp;
-        }
+       
 
 
         public async Task<List<Food>> GetFoods()
         {
             List<Food> listadatos = null;
             //CREAMOS LA PETICION
-            String peticion = DireccionApi + ControllerApi;
+            string peticion = MainHelper.mainRoute+"food";
             var uri = new Uri(string.Format(peticion, string.Empty));
-            HttpClient client = CrearCliente();
-            var respuesta = await client.GetAsync(uri);
+            var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)
             {
                 var contenido = await respuesta.Content.ReadAsStringAsync();
                 listadatos = JsonConvert.DeserializeObject<List<Food>>(contenido);
             }
+
             return listadatos;
         }
 
@@ -42,10 +34,9 @@ namespace RoastingBoulevard.Helpers
         {
             Food food = null;
             //CREAMOS LA PETICION
-            String peticion = DireccionApi + ControllerApi+ $"{id}";
+            string peticion = MainHelper.mainRoute + $"{id}";
             var uri = new Uri(string.Format(peticion, string.Empty));
-            HttpClient client = CrearCliente();
-            var respuesta = await client.GetAsync(uri);
+            var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)
             {
                 var contenido = await respuesta.Content.ReadAsStringAsync();
@@ -53,8 +44,26 @@ namespace RoastingBoulevard.Helpers
             }
             return food;
         }
+        /*
+        public async Task<bool> InsertApuesta(Apuesta apuesta)
+        {
+            apuesta.Id = await GetMaxId();
+            ByteArrayContent content = SerializarDato(apuesta);
+            //CREAMOS LA PETICION
+            String peticion = DireccionApi + baseController;
+            //REALIZAMOS LA LLAMADA AL API POST ENVIANDO EL CONTENIDO
+            var respuesta = await SendPeticionPost(peticion, content);
+            if (respuesta.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }*/
 
     }
 
 }
-}
+

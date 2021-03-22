@@ -3,12 +3,11 @@ using System.Collections.Generic;
 
 using Xamarin.Forms;
 
-namespace RoastingBoulevard
+namespace RoastingBoulevard.Views
 {
-    public partial class Login : ContentPage
+    public partial class FoodListPage : ContentPage
     {
-
-        public Login()
+        public FoodListPage()
         {
             InitializeComponent();
         }
