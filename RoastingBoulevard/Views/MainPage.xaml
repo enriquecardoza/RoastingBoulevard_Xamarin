@@ -9,7 +9,7 @@
 
     </ContentPage.Resources>
     <Grid
-        RowDefinitions="15*, 10*, 5*, 40*, 5*,5*"
+        RowDefinitions="15*, 7*, 7*, 30*, 7*,7*"
         ColumnDefinitions="*">
         <Grid RowDefinitions="*, *"
         ColumnDefinitions="70*,30*" BackgroundColor="#B8936E" >
