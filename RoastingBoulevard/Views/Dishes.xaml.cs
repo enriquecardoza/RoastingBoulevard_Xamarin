@@ -39,7 +39,6 @@ namespace RoastingBoulevard.Views
         {
             base.OnAppearing();
 
-            this.Animate("", (s) => Layout(new Rectangle(((1 - s) * Width), Y, Width, Height)), 16, 600, Easing.Linear, null, null);
         }
     }
 }
