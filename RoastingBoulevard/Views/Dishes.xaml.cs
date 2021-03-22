@@ -11,35 +11,35 @@ namespace RoastingBoulevard.Views
     public partial class Dishes : TabbedPage
     {
         CategoryHelperAzure helper;
-
+        private Action<List<Category>> onCosa = delegate (List<Category> cat) { };
         public Dishes()
         {
             InitializeComponent();
-
-            Task.Run(async () => {
-                List<Category> categories = await CategoryHelperAzure.GetCategories();
-
-
-                foreach(Category cat in categories)
-                {
-                    var navigationPage = new NavigationPage(new FoodListPage());
-                    //navigationPage.IconImageSource = "login.png";
-                    navigationPage.Title = cat.name;
-                    Children.Add(new FoodListPage());
-                }
-            });
-
-
             /*
-            List<FoodCombine> list = new List<FoodCombine>();
-            for(int i=0;i< TestData.GetSnacks().Count; i += 2)
-            {
-                //FoodCombine food = new FoodCombine(TestData.GetSnacks()[i], TestData.GetSnacks()[i + 1]);
-                FoodCombine food = new FoodCombine(TestData.GetSnacks()[i], TestData.GetSnacks()[i + 1]);
-                list.Add(food);
+            tabPageDishes.Children.Add(new FoodListPage());
+            
+            helper = new CategoryHelperAzure();
+            Task.Run(async () => {
+               List<Category> categories = await helper.GetCategories();
+                // tabPageDishes.ItemsSource = await helper.GetCategories();
 
-            }*/
-           // foodListView.ItemsSource = list;
+                onCosa.Invoke(categories);
+            });
+            onCosa += (List<Category> lista) => {
+                foreach(Category cat in lista)
+                {
+                    FoodListPage cp = new FoodListPage();
+                    cp.Title = cat.Name;
+                    tabPageDishes.Children.Add(cp);
+                }
+            };
+            */
+        }
+        protected override void OnAppearing()
+        {
+            base.OnAppearing();
+
+            this.Animate("", (s) => Layout(new Rectangle(((1 - s) * Width), Y, Width, Height)), 16, 600, Easing.Linear, null, null);
         }
     }
 }

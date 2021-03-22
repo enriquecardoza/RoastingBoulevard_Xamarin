@@ -15,6 +15,7 @@ namespace RoastingBoulevard.Views
         public MainTabbedPage()
         {
             InitializeComponent();
+            mainTabPage.SelectedItem = 0;
         }
     }
 }

@@ -7,11 +7,12 @@ namespace RoastingBoulevard.Models
     public class Category
     {
         [JsonProperty("Id")]
-        public int id;
+        public int Id { get; set; }
         [JsonProperty("Name")]
-        public string name;
+        public string Name { get; set; }
         [JsonProperty("Foods")]
-        public List<Food> foods = new List<Food>();
+        public List<Food> Foods { get => foods; set => foods = value; }
+        private List<Food> foods = new List<Food>();
 
         public Category()
         {
@@ -19,9 +20,9 @@ namespace RoastingBoulevard.Models
 
         public Category(int id, string name, List<Food> foods)
         {
-            this.id = id;
-            this.name = name;
-            this.foods = foods;
+            this.Id = id;
+            this.Name = name;
+            this.Foods = foods;
         }
     }
 }

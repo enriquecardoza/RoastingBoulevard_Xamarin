@@ -6,8 +6,10 @@
    NavigationPage.HasBackButton="False"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" android:TabbedPage.ToolbarPlacement="Bottom"
     xmlns:local="clr-namespace:RoastingBoulevard.Views"
-     SelectedTabColor="#CE8D41" TabIndex="0" 
-    BarTextColor="#000000" BarBackgroundColor="#ECDCCC"
+     SelectedTabColor="#CE8D41" 
+    UnselectedTabColor="#000000" BarBackgroundColor="#ECDCCC"
+     x:Name="mainTabPage"
+
     >
     <local:MainPage/>
     <local:Dishes/>

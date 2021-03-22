@@ -8,7 +8,7 @@ namespace RoastingBoulevard.Helpers
 {
     public class MainHelper
     {
-        private const string DireccionApi = "https://apicruddoctores.azurewebsites.net/";
+        private const string DireccionApi = "https://roastingboulevard.azurewebsites.net/";
         private const string ControllerApi = "api/";
         private static HttpClient mainClient;
         public static HttpClient MainClient

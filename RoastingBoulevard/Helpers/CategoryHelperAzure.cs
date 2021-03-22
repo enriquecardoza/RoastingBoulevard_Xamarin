@@ -8,7 +8,7 @@ namespace RoastingBoulevard.Helpers
 {
     public class CategoryHelperAzure
     {
-        public static async Task<List<Category>> GetCategories()
+        public async Task<List<Category>> GetCategories()
         {
             List<Category> listadatos = null;
             //CREAMOS LA PETICION
