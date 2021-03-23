@@ -75,38 +75,37 @@
     <None Include="Resources\AboutResources.txt" />
     <None Include="Assets\AboutAssets.txt" />
     <None Include="Properties\AndroidManifest.xml" />
-    <None Include="Resources\drawable\Foods\alitas_pollo.jpg" />
-    <None Include="Resources\drawable\Foods\allergen_crustacean_shellfish_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_food_egg_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_food_fish_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_food_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_food_milk_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_food_peanuts_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_sesame_icon.png" />
-    <None Include="Resources\drawable\Foods\allergen_wheat_icon.png" />
-    <None Include="Resources\drawable\Foods\bacalao_pisto.jpg" />
-    <None Include="Resources\drawable\Foods\bolitas_pollo.png" />
-    <None Include="Resources\drawable\Foods\cachopo.jpg" />
-    <None Include="Resources\drawable\Foods\costillas.jpg" />
-    <None Include="Resources\drawable\Foods\croquetas_jamon.jpg" />
-    <None Include="Resources\drawable\Foods\croquetas_pollo.jpg" />
-    <None Include="Resources\drawable\Foods\delivery_icon.png" />
-    <None Include="Resources\drawable\Foods\ensaladilla.jpg" />
-    <None Include="Resources\drawable\Foods\filete_pollo.jpg" />
-    <None Include="Resources\drawable\Foods\ic_launcher_foreground.png" />
-    <None Include="Resources\drawable\Foods\ic_launcher_round.png" />
-    <None Include="Resources\drawable\Foods\ic_launcher.png" />
-    <None Include="Resources\drawable\Foods\icon_user.png" />
-    <None Include="Resources\drawable\Foods\librito.jpg" />
-    <None Include="Resources\drawable\Foods\macedonia.jpg" />
-    <None Include="Resources\drawable\Foods\nuggets_pollo.jpg" />
-    <None Include="Resources\drawable\Foods\paella.jpg" />
-    <None Include="Resources\drawable\Foods\patatas_fritas.jpg" />
-    <None Include="Resources\drawable\Foods\patatas_panaderas.jpg" />
-    <None Include="Resources\drawable\Foods\pollo_asado.jpg" />
-    <None Include="Resources\drawable\Foods\shrek.jpg" />
-    <None Include="Resources\drawable\Foods\tarta_chocolate.jpg" />
-    <None Include="Resources\drawable\Foods\tarta_queso.jpeg" />
+    <AndroidResource Include="Resources\drawable\Foods\alitas_pollo.jpg" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_crustacean_shellfish_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_food_egg_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_food_fish_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_food_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_food_milk_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_food_peanuts_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_sesame_icon.png" />
+    <AndroidResource Include="Resources\drawable\Allergens\allergen_wheat_icon.png" />
+    <AndroidResource Include="Resources\drawable\Foods\bacalao_pisto.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\bolitas_pollo.png" />
+    <AndroidResource Include="Resources\drawable\Foods\cachopo.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\costillas.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\croquetas_jamon.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\croquetas_pollo.jpg" />
+    <AndroidResource Include="Resources\drawable\delivery_icon.png" />
+    <AndroidResource Include="Resources\drawable\Foods\ensaladilla.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\filete_pollo.jpg" />
+    <AndroidResource Include="Resources\drawable\ic_launcher_foreground.png" />
+    <AndroidResource Include="Resources\drawable\ic_launcher_round.png" />
+    <AndroidResource Include="Resources\drawable\ic_launcher.png" />
+    <AndroidResource Include="Resources\drawable\icon_user.png" />
+    <AndroidResource Include="Resources\drawable\Foods\librito.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\macedonia.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\nuggets_pollo.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\paella.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\patatas_fritas.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\patatas_panaderas.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\pollo_asado.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\tarta_chocolate.jpg" />
+    <AndroidResource Include="Resources\drawable\Foods\tarta_queso.jpeg" />
   </ItemGroup>
   <ItemGroup>
     <AndroidResource Include="Resources\layout\Tabbar.xml" />
@@ -139,9 +138,7 @@
       <Name>RoastingBoulevard</Name>
     </ProjectReference>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\drawable\Foods\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <ProjectExtensions>
     <VisualStudio>

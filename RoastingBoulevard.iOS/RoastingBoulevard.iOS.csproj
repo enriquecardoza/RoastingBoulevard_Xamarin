@@ -142,27 +142,27 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon.png" />
     <BundleResource Include="Resources\Foods\alitas_pollo.jpg" />
-    <BundleResource Include="Resources\Foods\allergen_crustacean_shellfish_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_food_egg_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_food_fish_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_food_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_food_milk_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_food_peanuts_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_sesame_icon.png" />
-    <BundleResource Include="Resources\Foods\allergen_wheat_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_crustacean_shellfish_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_food_egg_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_food_fish_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_food_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_food_milk_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_food_peanuts_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_sesame_icon.png" />
+    <BundleResource Include="Resources\Allergens\allergen_wheat_icon.png" />
     <BundleResource Include="Resources\Foods\bacalao_pisto.jpg" />
     <BundleResource Include="Resources\Foods\bolitas_pollo.png" />
     <BundleResource Include="Resources\Foods\cachopo.jpg" />
     <BundleResource Include="Resources\Foods\costillas.jpg" />
     <BundleResource Include="Resources\Foods\croquetas_jamon.jpg" />
     <BundleResource Include="Resources\Foods\croquetas_pollo.jpg" />
-    <BundleResource Include="Resources\Foods\delivery_icon.png" />
+    <BundleResource Include="Resources\delivery_icon.png" />
     <BundleResource Include="Resources\Foods\ensaladilla.jpg" />
     <BundleResource Include="Resources\Foods\filete_pollo.jpg" />
-    <BundleResource Include="Resources\Foods\ic_launcher_foreground.png" />
-    <BundleResource Include="Resources\Foods\ic_launcher_round.png" />
-    <BundleResource Include="Resources\Foods\ic_launcher.png" />
-    <BundleResource Include="Resources\Foods\icon_user.png" />
+    <BundleResource Include="Resources\ic_launcher_foreground.png" />
+    <BundleResource Include="Resources\ic_launcher_round.png" />
+    <BundleResource Include="Resources\ic_launcher.png" />
+    <BundleResource Include="Resources\icon_user.png" />
     <BundleResource Include="Resources\Foods\librito.jpg" />
     <BundleResource Include="Resources\Foods\macedonia.jpg" />
     <BundleResource Include="Resources\Foods\nuggets_pollo.jpg" />
@@ -170,11 +170,8 @@
     <BundleResource Include="Resources\Foods\patatas_fritas.jpg" />
     <BundleResource Include="Resources\Foods\patatas_panaderas.jpg" />
     <BundleResource Include="Resources\Foods\pollo_asado.jpg" />
-    <BundleResource Include="Resources\Foods\shrek.jpg" />
     <BundleResource Include="Resources\Foods\tarta_chocolate.jpg" />
     <BundleResource Include="Resources\Foods\tarta_queso.jpeg" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Resources\Foods\" />
-  </ItemGroup>
+  <ItemGroup />
 </Project>
