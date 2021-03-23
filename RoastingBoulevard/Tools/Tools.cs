@@ -2,6 +2,7 @@
 using System.Globalization;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Xamarin.Forms;
 
 namespace RoastingBoulevard.Tools
 {
@@ -52,5 +53,26 @@ namespace RoastingBoulevard.Tools
         }
 
 
+        public static void PushAsync(string tittle, INavigation navigation, Page page)
+        {
+            NavigationPage newpage = new NavigationPage(page);
+            page.Title = tittle;
+            Device.BeginInvokeOnMainThread(async () => await navigation.PushAsync(page));
+        }
+        public static void PopAsync(INavigation navigation)
+        {
+            Device.BeginInvokeOnMainThread(async () => await navigation.PopAsync());
+        }
+        public static void PopToRootAsync(INavigation navigation)
+        {
+            Device.BeginInvokeOnMainThread(async () => await navigation.PopToRootAsync());
+        }
+        public static void UseActionMainThread(Action action)
+        {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
+                action.Invoke();
+            });
+        }
     }
 }

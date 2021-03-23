@@ -1,39 +1,42 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Newtonsoft.Json;
 
 namespace RoastingBoulevard.Models
 {
     public class Food
     {
-       public int id;
-        private string name;
-        public string description;
-       public string ingredients;
-       public List<Allergen> allergens=new List<Allergen>();
+        [JsonProperty("Id")]
+        public int Id { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+        [JsonProperty("Ingredients")]
+        public string Ingredients { get; set; }
+        [JsonProperty("Allergens")]
+        public List<Allergen> allergens=new List<Allergen>();
+        [JsonProperty("Photo")]
+        public string Photo { get { return $"Foods/{photo}"; } set { photo = value; } }
+        [JsonProperty("Price")]
+        public float Price { get; set; }
+
+
         private string photo;
-        public float price;
-
-        public string Name { get => name; set => name = value; }
-        public string Photo { get => photo; set => photo = value; }
-
-        public enum Allergen
-        {
-            Gluten = 0, Eggs = 1, Dairy = 2, Nuts = 3, Fish = 4, Seafood = 5
-        }
         public Food()
         {
         }
 
         public Food(int id, string name, string description, string ingredients, List<Allergen> allergens, string photo, float price)
         {
-            this.id = id;
+            this.Id = id;
             this.Name = name;
-            this.description = description;
-            this.ingredients = ingredients;
+            this.Description = description;
+            this.Description = ingredients;
             this.allergens = allergens;
             this.Photo = photo;
-            this.price = price;
+            this.Price = price;
         }
 
     }

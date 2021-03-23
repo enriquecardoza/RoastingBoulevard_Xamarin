@@ -9,10 +9,10 @@ namespace RoastingBoulevard.Tools
 
 
 
-        public static List<Food> GetSnacks()
+      public static List<Food> GetSnacks()
         {
             List<Food> list = new List<Food>();
-
+            /*
             list.Add(new Food(0, "croquetasJamon", "descript_croquetasPollo", "ingredientsCroquetasJamon",
                 new List<Food.Allergen> {Food.Allergen.Dairy,Food.Allergen.Gluten }
                 , "https://firebasestorage.googleapis.com/v0/b/roastingboulevard.appspot.com/o/Food%2Fcroquetas_jamon.jpg?alt=media&token=990f568d-c177-4548-9d20-c428431536fe", 3
@@ -28,7 +28,7 @@ namespace RoastingBoulevard.Tools
             list.Add(new Food(4, "patatasFritas", "descript_patatasFritas", "ingredients_patatasFritas",
              new List<Food.Allergen> { Food.Allergen.Dairy, Food.Allergen.Gluten }
              , "https://www.cocinacaserayfacil.net/wp-content/uploads/2019/01/Patatas-fritas-caseras-perfectas-y-crujientes.jpg", 3
-             ));
+             ));*/
             return list;
         }
     }

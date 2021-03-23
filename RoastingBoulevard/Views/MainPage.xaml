@@ -12,9 +12,9 @@
         RowDefinitions="15*, 7*, 7*, 30*, 7*,7*"
         ColumnDefinitions="*">
         <Grid RowDefinitions="*, *"
-        ColumnDefinitions="70*,30*" BackgroundColor="#B8936E" >
-            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground"/>
-            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" />
+        ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" >
+            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
+            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
             <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
         </Grid>
 

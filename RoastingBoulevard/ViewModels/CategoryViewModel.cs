@@ -16,7 +16,7 @@ namespace RoastingBoulevard.ViewModels
         {
             helper = new CategoryHelperAzure();
             Task.Run(async () => {
-                List<Category> lista = await helper.GetCategories();
+                List<Category> lista = await helper.GetCategoriesWithFoods();
                 this.Categories = new ObservableCollection<Category>(lista);
             });
         }

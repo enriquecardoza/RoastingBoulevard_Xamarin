@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using RoastingBoulevard.Helpers;
 using RoastingBoulevard.Models;
 using RoastingBoulevard.Tools;
+using RoastingBoulevard.ViewModels;
 using Xamarin.Forms;
 
 namespace RoastingBoulevard.Views
@@ -11,34 +12,38 @@ namespace RoastingBoulevard.Views
     public partial class Dishes : TabbedPage
     {
         CategoryHelperAzure helper;
-        private Action<List<Category>> onCosa = delegate (List<Category> cat) { };
+        public static Dishes instance;
         public Dishes()
         {
             InitializeComponent();
-            /*
-            tabPageDishes.Children.Add(new FoodListPage());
-            
+            instance = this;
+            // tabPageDishes.Children.Add(new FoodListPage());
+
             helper = new CategoryHelperAzure();
-            Task.Run(async () => {
-               List<Category> categories = await helper.GetCategories();
+            Task.Run(async () =>
+            {
+                List<Category> categories = await helper.GetCategoriesWithFoods();
                 // tabPageDishes.ItemsSource = await helper.GetCategories();
 
-                onCosa.Invoke(categories);
-            });
-            onCosa += (List<Category> lista) => {
-                foreach(Category cat in lista)
-                {
-                    FoodListPage cp = new FoodListPage();
-                    cp.Title = cat.Name;
-                    tabPageDishes.Children.Add(cp);
-                }
-            };
-            */
-        }
-        protected override void OnAppearing()
-        {
-            base.OnAppearing();
+                Tools.Tools.UseActionMainThread(()=> {
+                    foreach (Category cat in categories)
+                    {
+                        FoodListPage cp = new FoodListPage(cat.Foods);
+                        cp.Title = cat.Name;
+                        tabPageDishes.Children.Add(cp);
 
+                    }
+                    tabPageDishes.TabIndex = 0;
+
+                });
+            });
+
+
+        }
+
+        public static async Task AletAsync(String texto)
+        {
+            await instance.DisplayAlert("Alert", texto, "OK");
         }
     }
 }

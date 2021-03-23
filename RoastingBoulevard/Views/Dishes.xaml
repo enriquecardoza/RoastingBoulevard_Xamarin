@@ -1,16 +1,22 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <TabbedPage
 
-    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RoastingBoulevard.Views" x:Class="RoastingBoulevard.Views.Dishes" BarTextColor="#000000" BarBackgroundColor="#ECDCCC" NavigationPage.HasBackButton="False"
+    xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" xmlns:local="clr-namespace:RoastingBoulevard.Views" x:Class="RoastingBoulevard.Views.Dishes" NavigationPage.HasBackButton="False"
     xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core" xmlns:viewmodels="clr-namespace:RoastingBoulevard.ViewModels"
-android:TabbedPage.ToolbarPlacement="Top" SelectedTabColor="#CE8D41" TabIndex="0" x:Name="tabPageDishes" Title="Platos"
+android:TabbedPage.ToolbarPlacement="Bottom"  SelectedTabColor="#CE8D41" 
+    UnselectedTabColor="#000000" BarBackgroundColor="#ECDCCC" TabIndex="0" x:Name="tabPageDishes" Title="Platos"
+    HeightRequest="100"
+    >
 
-    ItemsSource="{Binding Categories}" Padding="0,1,0,0">
+   <!--ItemsSource="{Binding Categories}" --> 
+    <!--
     <TabbedPage.BindingContext>
         <viewmodels:CategoryViewModel/>
     </TabbedPage.BindingContext>
+    --> 
     <TabbedPage.ItemTemplate>
         <DataTemplate>
+            <!--
             <ContentPage Title="{Binding Name}">
                 <ListView  HasUnevenRows="True" Margin="10" SeparatorVisibility="None" ItemsSource="{Binding CombinedList}">
                     <ListView.ItemTemplate >
@@ -41,7 +47,7 @@ android:TabbedPage.ToolbarPlacement="Top" SelectedTabColor="#CE8D41" TabIndex="0
                         </DataTemplate>
                     </ListView.ItemTemplate>
                 </ListView>
-            </ContentPage>
+            </ContentPage>--> 
         </DataTemplate>
     </TabbedPage.ItemTemplate>
     <!--
@@ -84,37 +90,3 @@ android:TabbedPage.ToolbarPlacement="Top" SelectedTabColor="#CE8D41" TabIndex="0
     </TabbedPage.ItemTemplate>
     -->
 </TabbedPage>
-
-<!--
- <StackLayout>
-        <ListView x:Name="foodListView" HasUnevenRows="True" Margin="10" SeparatorVisibility="None">
-            <ListView.ItemTemplate >
-                <DataTemplate>
-                    <ViewCell Height="100">
-                        <Grid VerticalOptions="FillAndExpand">
-                            <Grid.ColumnDefinitions>
-                                <ColumnDefinition Width="50*" />
-                                <ColumnDefinition Width="50*" />
-                            </Grid.ColumnDefinitions>
-                            <Grid.RowDefinitions>
-                                <RowDefinition Height="100" />
-                            </Grid.RowDefinitions>
-
-                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="0">
-                                <Image Source="{Binding Path=Food1.Photo}" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Path=Food1.Name}" 
-                                       FontSize="15" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
-
-                            </Grid>
-                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="1">
-                                <Image Source="{Binding Path=Food2.Photo}" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand"/>
-                                <Label Text="{Binding Path=Food2.Name}" 
-                                       FontSize="15" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
-                            </Grid>
-                        </Grid>
-                    </ViewCell>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
-    </StackLayout>
--->

@@ -11,7 +11,7 @@ namespace RoastingBoulevard
         {
             InitializeComponent();
 
-            MainPage = new MainTabbedPage();
+            MainPage = new NavigationPage(new MainTabbedPage());
         }
 
         protected override void OnStart()
