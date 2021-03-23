@@ -13,9 +13,10 @@
         ColumnDefinitions="*">
         <Grid RowDefinitions="*, *"
         ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" >
-            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
+            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center" x:Name="testo"/>
             <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
             <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
+
         </Grid>
 
         <Button Text="Empezar orden" StyleClass="MainButton" Grid.Row="1"  />

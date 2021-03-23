@@ -21,18 +21,22 @@ namespace RoastingBoulevard.ViewModels
             }
         }
 
-        public ICommand TabButtonPressed
+        public static ICommand TabButtonPressed
         {
             get
             {
-                return new Command((object componentIdentifier) =>
+                return new Command(async (object componentIdentifier) =>
                 {
                     onTabPressed(componentIdentifier);
                 });
             }
+            set {
+
+                int n;
+            }
         }
 
-        public void onTabPressed(object componentIdentifier)
+        public static void onTabPressed(object componentIdentifier)
         {
             Dishes.instance.DisplayAlert("al",componentIdentifier.ToString(),"ok");
             if (componentIdentifier is string)
@@ -42,5 +46,6 @@ namespace RoastingBoulevard.ViewModels
                 }
             }
         }
+
     }
 }

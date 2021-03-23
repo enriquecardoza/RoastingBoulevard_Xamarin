@@ -38,6 +38,9 @@ namespace RoastingBoulevard.Models
             this.Photo = photo;
             this.Price = price;
         }
-
+        public override string ToString()
+        {
+            return "comida";
+        }
     }
 }
