@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoastingBoulevard.Views.MainPage"
+             Title="Inicio">
+
+    <ContentPage.Resources>
+        <StyleSheet Source="../Styles/DefaultStyles.css"/>
+
+    </ContentPage.Resources>
+    <Grid
+        RowDefinitions="15*, 7*, 7*, 30*, 7*,7*"
+        ColumnDefinitions="*">
+        <Grid RowDefinitions="*, *"
+        ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" >
+            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center" x:Name="testo"/>
+            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
+            <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
+
+        </Grid>
+
+        <Button Text="Empezar orden" StyleClass="MainButton" Grid.Row="1"  />
+        <Label Text="Donde estamos?" Grid.Row="2" StyleClass="TextClearBackground" />
+        <BoxView Grid.Row="3" BackgroundColor="AliceBlue"/>
+        <Label Text="Calle falsa n 123" Grid.Row="4" StyleClass="TextClearBackground"/>
+        <Label Text="Springfield 24530" Grid.Row="5" StyleClass="TextClearBackground"/>
+    </Grid>
+
+</ContentPage>

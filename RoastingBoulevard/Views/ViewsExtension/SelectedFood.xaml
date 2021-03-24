@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<rx:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
+              xmlns:rx="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
+                xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+                x:Class="RoastingBoulevard.Views.SelectedFood">
+    <ContentPage.Resources>
+        <StyleSheet Source="../Styles/DefaultStyles.css"/>
+
+    </ContentPage.Resources>
+    <Frame x:Name="FrContent" 
+           BackgroundColor="PeachPuff"
+           BorderColor="Peru"
+           CornerRadius="10"
+           Margin="20"
+           HorizontalOptions="FillAndExpand" VerticalOptions="Center" 
+           Opacity="0" >
+        <Grid HeightRequest="300" x:Name="gridFood">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="35*" />
+                <RowDefinition Height="40*" />
+                <RowDefinition Height="35*" />
+                <RowDefinition Height="40*" />
+                <RowDefinition Height="30*" />
+                <RowDefinition Height="35*" />
+            </Grid.RowDefinitions>
+            <BoxView Grid.Row="1" Grid.RowSpan="5" BackgroundColor="White"/>
+            <AbsoluteLayout Grid.Row="0">
+                <ImageButton Clicked="BtClose_Clicked" Source="close.png" HorizontalOptions="Start" Grid.Row="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="10, 0, 20, 20"/>
+                <Grid ColumnDefinitions="20*,40*,20*" AbsoluteLayout.LayoutBounds="0,20,1,2" AbsoluteLayout.LayoutFlags="SizeProportional" >
+                    <Image x:Name="foodPhoto"  Source="cachopo.jpg" Grid.Column="1" Aspect="AspectFit" Grid.Row="0"/>
+                    <Label x:Name="foodPrice" Text="3.0€" Grid.Column="2" HorizontalOptions="Center" AbsoluteLayout.LayoutBounds="0, 10, 200, 5" VerticalOptions="End" FontSize="Large"/>
+                </Grid>
+            </AbsoluteLayout>
+            <BoxView Grid.Row="1"/>
+            <Label x:Name="foodName" Text="Cachopo" Grid.Row="2" HorizontalOptions="CenterAndExpand" FontSize="Title" />
+            <Label x:Name="foodDescription" Text="Bolitas de pollo creadas con una mezcla de leche con pollo, ajo y pimienta." Grid.Row="3" HorizontalOptions="CenterAndExpand" FontSize="10" HorizontalTextAlignment="Center"  VerticalOptions="Center" VerticalTextAlignment="Start"/>
+            <StackLayout Orientation="Horizontal" Grid.Row="4" HorizontalOptions="Center"  VerticalOptions="Start">
+                
+                <Image x:Name="iconWheat" Source="allergen_wheat_icon.png" HeightRequest="35"/>
+                <Image x:Name="iconEggs" Source="allergen_food_egg_icon.png" HeightRequest="35"/>
+                <Image x:Name="iconMilk" Source="allergen_food_milk_icon.png" HeightRequest="35"/>
+                <Image x:Name="iconPeanuts" Source="allergen_food_peanuts_icon.png" HeightRequest="35"/>
+                <Image x:Name="iconFish" Source="allergen_food_fish_icon.png" HeightRequest="35"/>
+                <Image x:Name="iconCrustacean" Source="allergen_crustacean_shellfish_icon.png" HeightRequest="35"/>
+            </StackLayout>
+
+            <Button Clicked="BtAdd_Clicked" StyleClass="MainButton" Text="Pedir Ahora" Grid.Row="5"/>
+        </Grid>
+    </Frame>
+
+
+</rx:PopupPage>
