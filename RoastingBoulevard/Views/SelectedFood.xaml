@@ -26,7 +26,7 @@
                 <RowDefinition Height="30*" />
                 <RowDefinition Height="35*" />
             </Grid.RowDefinitions>
-            <BoxView Grid.Row="1" Grid.RowSpan="5" BackgroundColor="AliceBlue"/>
+            <BoxView Grid.Row="1" Grid.RowSpan="5" BackgroundColor="White"/>
             <AbsoluteLayout Grid.Row="0">
                 <ImageButton Clicked="BtClose_Clicked" Source="close.png" HorizontalOptions="Start" Grid.Row="0" BackgroundColor="Transparent" AbsoluteLayout.LayoutBounds="10, 0, 20, 20"/>
                 <Grid ColumnDefinitions="20*,40*,20*" AbsoluteLayout.LayoutBounds="0,20,1,2" AbsoluteLayout.LayoutFlags="SizeProportional" >
