@@ -7,8 +7,10 @@ namespace RoastingBoulevard.Models
     {
 
         [JsonProperty("Id")]
-        int id { get; set; }
+        public int id { get; set; }
         [JsonProperty("Key")]
-        string key { get; set; }
+        public string key { get; set; }
+
+
     }
 }

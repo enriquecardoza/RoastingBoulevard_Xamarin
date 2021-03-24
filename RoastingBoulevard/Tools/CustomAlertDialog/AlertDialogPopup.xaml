@@ -2,7 +2,7 @@
 <rx:PopupPage xmlns="http://xamarin.com/schemas/2014/forms"
               xmlns:rx="clr-namespace:Rg.Plugins.Popup.Pages;assembly=Rg.Plugins.Popup"
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-                x:Class="RoastingBoulevard.Tools.AlertDialogPopup">
+                x:Class="RoastingBoulevard.Tools.AlertDialogPopup" >
 
     <Frame x:Name="FrContent" Grid.ColumnSpan="2" Grid.RowSpan="3"
            BackgroundColor="WhiteSmoke"
@@ -27,15 +27,15 @@
                    MaxLines="1"
                    LineBreakMode="TailTruncation"
                    HorizontalTextAlignment="Start" VerticalTextAlignment="Center"
-                   HorizontalOptions="FillAndExpand" VerticalOptions="Center" />
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Center" Text="Tittle"/>
 
             <Label x:Name="LbMessage" Grid.Row="1" Grid.ColumnSpan="2"
                    FontSize="Body"
-                   HorizontalOptions="FillAndExpand" VerticalOptions="Start" />
+                   HorizontalOptions="FillAndExpand" VerticalOptions="Start" Text="Message" />
 
             <ImageButton x:Name="BtClose" Grid.Row="0" Grid.Column="1"
                          BackgroundColor="Transparent"
-                         Source="close.png"
+                         Source="close.jpg"
                          Aspect="AspectFit"
                          HeightRequest="48" 
                          Margin="{OnPlatform Android=0, iOS=-15}"
@@ -49,7 +49,7 @@
                     CornerRadius="24"
                     Padding="5"
                     HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                    Clicked="BtCancel_Clicked"/>
+                    Clicked="BtCancel_Clicked" Text="ButtonCancel"/>
 
             <Button x:Name="BtOk" Grid.Row="2" Grid.Column="1"
                     BackgroundColor="Green"
@@ -58,7 +58,7 @@
                     CornerRadius="24"
                     Padding="5"
                     HorizontalOptions="FillAndExpand" VerticalOptions="End" 
-                    Clicked="BtOk_Clicked"/>
+                    Clicked="BtOk_Clicked" Text="ButtonOk"/>
         </Grid>
     </Frame>
 </rx:PopupPage>

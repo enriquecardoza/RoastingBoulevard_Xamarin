@@ -18,7 +18,7 @@ namespace RoastingBoulevard.Models
         [JsonProperty("Allergens")]
         public List<Allergen> allergens=new List<Allergen>();
         [JsonProperty("Photo")]
-        public string Photo { get { return $"Foods/{photo}"; } set { photo = value; } }
+        public string Photo { get { return photo; } set { photo = value; } }
         [JsonProperty("Price")]
         public float Price { get; set; }
 

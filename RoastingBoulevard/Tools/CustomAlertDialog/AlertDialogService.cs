@@ -1,5 +1,7 @@
 ﻿using Rg.Plugins.Popup.Extensions;
+using RoastingBoulevard.Models;
 using RoastingBoulevard.Tools;
+using RoastingBoulevard.Views;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -7,10 +9,10 @@ using Xamarin.Forms;
 [assembly: Xamarin.Forms.Dependency(typeof(AlertDialogService))]
 namespace RoastingBoulevard.Tools
 {
-   public class AlertDialogService : IAlertDialogService
+    public class AlertDialogService : IAlertDialogService
     {
-        private TaskCompletionSource<bool> taskCompletionSource;
-        private Task<bool> task;
+        private  static TaskCompletionSource<bool> taskCompletionSource;
+        private static Task<bool> task;
 
         public async Task ShowDialogAsync(string title, string message, string close)
         {
@@ -42,6 +44,19 @@ namespace RoastingBoulevard.Tools
             {
                 taskCompletionSource.SetResult(result);
             }
+        }
+
+        public async Task<bool> ShowDialogFood(Food food)
+        {
+            taskCompletionSource = new TaskCompletionSource<bool>();
+            task = taskCompletionSource.Task;
+            SelectedFood alertDialog = new SelectedFood(food, Callback);
+            await Application.Current.MainPage.Navigation.PushPopupAsync(alertDialog);
+            return await task;
+        }
+        public async Task HideDialog()
+        {
+            await Application.Current.MainPage.Navigation.PopPopupAsync();
         }
     }
 }

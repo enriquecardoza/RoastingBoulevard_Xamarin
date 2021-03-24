@@ -18,7 +18,7 @@ namespace RoastingBoulevard.Views
             ObservableCollection<FoodCombine> fc = new ObservableCollection<FoodCombine>();
 
 
-            for (int i = 0; i < foods.Count; i+=2)
+            for (int i = 0; i < foods.Count; i += 2)
             {
                 if (i + 1 < foods.Count)
                     fc.Add(new FoodCombine(foods[i], foods[i + 1]));
@@ -30,11 +30,20 @@ namespace RoastingBoulevard.Views
             foodListPage.BindingContext = fcvm;
         }
 
-        
+
         public async void BtInformation_Clicked(object sender, EventArgs e)
         {
-            await alertDialogService.ShowDialogAsync("Lorem", (((TappedEventArgs)e).Parameter as Food).Name , "Cerrar");
+            Food food = ((TappedEventArgs)e).Parameter as Food;
+            bool b = await alertDialogService.ShowDialogFood(food);
+
+            if (b)
+            {
+                comida = food;
+            }
         }
+        private Food comida;
+
+
         /*
         private async void BtConfirmation_Clicked(object sender, EventArgs e)
         {
