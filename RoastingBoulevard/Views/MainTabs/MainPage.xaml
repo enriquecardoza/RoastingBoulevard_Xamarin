@@ -21,9 +21,8 @@
             <Button Text="Empezar orden" Style="{StaticResource MainButton}" Grid.Row="0"  />
             <Label Text="Donde estamos?" Grid.Row="1" Style="{StaticResource TextClearBackground}" />
             <BoxView Grid.Row="2" BackgroundColor="AliceBlue"/>
-            <Label Text="Calle falsa n 123" Grid.Row="3"  />
-            <Label Text="Springfield 24530" Grid.Row="4"  />
-            <Label Text="ddd" Grid.Row="5"/>
+            <Label Text="Calle falsa n 123" Grid.Row="3"  VerticalTextAlignment="Center"/>
+            <Label Text="Springfield 24530" Grid.Row="4"  VerticalTextAlignment="Center"/>
         </Grid>
     </Grid>
 </ContentPage>

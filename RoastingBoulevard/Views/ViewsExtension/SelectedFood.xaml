@@ -46,7 +46,7 @@
                 <Image x:Name="iconCrustacean" Source="allergen_crustacean_shellfish_icon.png" HeightRequest="35"/>
             </StackLayout>
 
-            <Button Clicked="BtAdd_Clicked" StyleClass="MainButton" Text="Pedir Ahora" Grid.Row="5"/>
+            <Button Clicked="BtAdd_Clicked" Style="{StaticResource MainButton}" Text="Pedir Ahora" Grid.Row="5"/>
         </Grid>
     </Frame>
 

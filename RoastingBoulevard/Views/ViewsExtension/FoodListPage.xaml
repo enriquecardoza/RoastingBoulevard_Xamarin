@@ -2,30 +2,29 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms" xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" x:Class="RoastingBoulevard.Views.FoodListPage" x:Name="foodListPage">
     <ContentPage.Content>
         <ListView  HasUnevenRows="True" Margin="10" SeparatorVisibility="None" ItemsSource="{Binding FoodsCombined}" x:Name="listaItems">
-            <ListView.ItemTemplate >
+            <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell Height="100">
-
-                        <Grid VerticalOptions="FillAndExpand" x:Name="dddd">
+                    <ViewCell Height="100" >
+                        <Grid VerticalOptions="CenterAndExpand" Padding="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50*" />
                                 <ColumnDefinition Width="50*" />
                             </Grid.ColumnDefinitions>
                             <Grid.RowDefinitions>
-                                <RowDefinition Height="100" />
+                                <RowDefinition Height="100*" />
                             </Grid.RowDefinitions>
-                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="0" BackgroundColor="PeachPuff" >
+                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="0" BackgroundColor="PeachPuff"  >
                                 <Image Source="{Binding Path=Food1.Photo}" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
                                 <Label Text="{Binding Path=Food1.Name}" 
-                                       FontSize="15" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
+                                       FontSize="12" Grid.Row="1" HorizontalOptions="Center" Padding="10"/>
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BtInformation_Clicked" CommandParameter="{Binding Path=Food1}"/>
                                 </Grid.GestureRecognizers>
                             </Grid>
-                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="1" BackgroundColor="PeachPuff">
+                            <Grid RowDefinitions="70*,30*" ColumnDefinitions="*" Grid.Column="1" BackgroundColor="{Binding Path=Color2}" >
                                 <Image Source="{Binding Path=Food2.Photo}" Grid.Row="0" VerticalOptions="CenterAndExpand" HorizontalOptions="CenterAndExpand" Aspect="AspectFit"/>
                                 <Label Text="{Binding Path=Food2.Name}" 
-                                       FontSize="15" Grid.Row="1" HorizontalOptions="CenterAndExpand"/>
+                                       FontSize="12" Grid.Row="1" HorizontalOptions="Center" Padding="10"/>
                                 <Grid.GestureRecognizers>
                                     <TapGestureRecognizer NumberOfTapsRequired="1" Tapped="BtInformation_Clicked" CommandParameter="{Binding Path=Food2}"/>
                                 </Grid.GestureRecognizers>

@@ -53,11 +53,12 @@ namespace RoastingBoulevard.Tools
         }
 
 
-        public static void PushAsync(string tittle,INavigation navigation, Page page)
+        public static void PushAsync(string tittle, INavigation navigation, Page page)
         {
-            NavigationPage newpage = new NavigationPage(page);
-            newpage.Title = tittle;
-            Device.BeginInvokeOnMainThread(async () => await navigation.PushAsync(newpage));
+            //NavigationPage newpage = new NavigationPage(page);
+
+            page.Title = tittle;
+            Device.BeginInvokeOnMainThread(async () => await navigation.PushAsync(page));
         }
         public static void PushAsync(INavigation navigation, Page page)
         {
@@ -79,5 +80,13 @@ namespace RoastingBoulevard.Tools
                 action.Invoke();
             });
         }
+
+        public static void RunTask(Action action)
+        {
+            Task.Run(async () =>
+            {
+                action.Invoke();
+            });
+    }
     }
 }

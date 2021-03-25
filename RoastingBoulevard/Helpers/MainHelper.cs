@@ -24,7 +24,7 @@ namespace RoastingBoulevard.Helpers
             }
             private set { mainClient = value; }
         }
-        public static string mainRoute = DireccionApi + ControllerApi;
+        public static string mainRoute =>DireccionApi + ControllerApi;
 
         private static HttpClient CrearCliente()
         {
@@ -41,7 +41,7 @@ namespace RoastingBoulevard.Helpers
         }
         public static async Task<HttpResponseMessage> SendPeticionPost(string peticion, ByteArrayContent content)
         {
-            var uri = new Uri(string.Format(peticion, string.Empty));
+            var uri = new Uri(string.Format(mainRoute+peticion, string.Empty));
             HttpClient client = CrearCliente();
             return await client.PostAsync(uri, content);
         }

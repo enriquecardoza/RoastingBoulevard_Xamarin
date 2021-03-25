@@ -34,6 +34,9 @@ namespace RoastingBoulevard.Views
         public async void BtInformation_Clicked(object sender, EventArgs e)
         {
             Food food = ((TappedEventArgs)e).Parameter as Food;
+
+            if (food == null)
+                return;
             bool b = await alertDialogService.ShowDialogFood(food);
 
             if (b)

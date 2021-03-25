@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Drawing;
 using RoastingBoulevard.Models;
 
 namespace RoastingBoulevard.Models
@@ -16,6 +17,8 @@ namespace RoastingBoulevard.Models
             this.Food1 = food1;
             this.Food2 = food2;
         }
+
+        public Color Color2 { get { return Food2 != null ? Color.PeachPuff : Color.Transparent; } }
 
     }
 }

@@ -6,29 +6,54 @@ using System.Threading.Tasks;
 using RoastingBoulevard.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using RoastingBoulevard.Tools;
 
 namespace RoastingBoulevard.Views
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class CreateEditUser : ContentPage
     {
+
         public CreateEditUser()
         {
             InitializeComponent();
             crearButton.Clicked += CrearUser;
+            errortext.Text = "";
         }
 
         private void CrearUser(object sender, EventArgs arg)
         {
-            User newUser = new User();
-            newUser.name = enterName.Text;
-            newUser.surname = enterSurname.Text;
-            newUser.email = enterEmail.Text;
-            newUser.phone = int.Parse(enterPhone.Text);
-            newUser.password = enterPassword.Text;
+            if (CheckEntriesCorrect())
+            {
+                User newUser = new User();
+                newUser.name = enterName.Text;
+                newUser.surname = enterSurname.Text;
+                newUser.email = enterEmail.Text;
+                newUser.phone = int.Parse(enterPhone.Text);
+                newUser.password = enterPassword.Text;
+               
+                Task.Run(async () =>
+                {
+                    bool b = await Helpers.HelperUser.InsertUser(newUser);
+                    if (b)
+                    {
+                        Tools.Tools.UseActionMainThread(()=> {
+                            errortext.Text = "Datos guardados";
+                        });
+                        Tools.Tools.PopToRootAsync(this.Navigation);
+                    }
+                    else
+                        Tools.Tools.UseActionMainThread(() => {
+                            errortext.Text = "Error al enviar datos";
+                        });
+                  
+
+                });
+
+            }
         }
 
-        private bool AllEntriesCorrect()
+        private bool CheckEntriesCorrect()
         {
             if (string.IsNullOrEmpty(enterName.Text) ||
                 string.IsNullOrEmpty(enterSurname.Text) ||
@@ -38,6 +63,7 @@ namespace RoastingBoulevard.Views
                 string.IsNullOrEmpty(enterConfirmPassword.Text))
             {
                 errortext.Text = "Hay un campo vacio";
+                errortext.TextColor = Color.Red;
                 return false;
             }
             else if (enterPassword.Text != enterConfirmPassword.Text)
@@ -45,7 +71,8 @@ namespace RoastingBoulevard.Views
                 errortext.Text = "Las contraseñas no coinciden";
                 errortext.TextColor = Color.Red;
                 return false;
-            }else if (!Tools.Tools.IsValidEmail(enterEmail.Text))
+            }
+            else if (!Tools.Tools.IsValidEmail(enterEmail.Text))
             {
                 errortext.Text = "Email no valido";
                 errortext.TextColor = Color.Red;
@@ -53,7 +80,7 @@ namespace RoastingBoulevard.Views
             }
             else
             {
-                errortext.Text = "Creando usuario";
+                errortext.Text = "Enviando datos";
                 errortext.TextColor = Color.Blue;
                 return true;
             }
