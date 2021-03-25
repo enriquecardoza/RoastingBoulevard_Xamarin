@@ -11,6 +11,10 @@ namespace RoastingBoulevard.Views
         public Login()
         {
             InitializeComponent();
+            registerButton.Clicked += (object sender, EventArgs arg) => {
+                Tools.Tools.PushAsync("Crear perfil",this.Navigation,new CreateEditUser()); };
         }
+
+
     }
 }

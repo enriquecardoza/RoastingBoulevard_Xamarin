@@ -5,25 +5,25 @@
              Title="Inicio">
 
     <ContentPage.Resources>
-        <StyleSheet Source="../Styles/DefaultStyles.css"/>
 
     </ContentPage.Resources>
-    <Grid
-        RowDefinitions="15*, 7*, 7*, 30*, 7*,7*"
-        ColumnDefinitions="*">
+    <Grid RowDefinitions="15*,85*">
         <Grid RowDefinitions="*, *"
-        ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" >
-            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center" x:Name="testo"/>
-            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" StyleClass="TextDarkBackground" FontSize="18" VerticalTextAlignment="Center"/>
+        ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" Grid.Row="0" Padding="10">
+            <Label Text="Bienvenido" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextDarkBackground}" FontSize="18" x:Name="testo"/>
+            <Label Text="¿Que quieres comer hoy?" Grid.Row="1" Grid.Column="0" Style="{StaticResource TextDarkBackground}" FontSize="18" />
             <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
 
         </Grid>
-
-        <Button Text="Empezar orden" StyleClass="MainButton" Grid.Row="1"  />
-        <Label Text="Donde estamos?" Grid.Row="2" StyleClass="TextClearBackground" />
-        <BoxView Grid.Row="3" BackgroundColor="AliceBlue"/>
-        <Label Text="Calle falsa n 123" Grid.Row="4" StyleClass="TextClearBackground"/>
-        <Label Text="Springfield 24530" Grid.Row="5" StyleClass="TextClearBackground"/>
+        <Grid
+        RowDefinitions="10*, 10*, 40*, 10*,10*"
+        ColumnDefinitions="*"  Grid.Row="1" Style="{StaticResource MainGrid}">
+            <Button Text="Empezar orden" Style="{StaticResource MainButton}" Grid.Row="0"  />
+            <Label Text="Donde estamos?" Grid.Row="1" Style="{StaticResource TextClearBackground}" />
+            <BoxView Grid.Row="2" BackgroundColor="AliceBlue"/>
+            <Label Text="Calle falsa n 123" Grid.Row="3"  />
+            <Label Text="Springfield 24530" Grid.Row="4"  />
+            <Label Text="ddd" Grid.Row="5"/>
+        </Grid>
     </Grid>
-
 </ContentPage>

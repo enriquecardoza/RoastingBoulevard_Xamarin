@@ -4,7 +4,6 @@
                 xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
                 x:Class="RoastingBoulevard.Views.SelectedFood">
     <ContentPage.Resources>
-        <StyleSheet Source="../Styles/DefaultStyles.css"/>
 
     </ContentPage.Resources>
     <Frame x:Name="FrContent" 

@@ -27,7 +27,7 @@ namespace RoastingBoulevard.ViewModels
             {
                 return new Command(async (object componentIdentifier) =>
                 {
-                    onTabPressed(componentIdentifier);
+                  onTabPressed(componentIdentifier);
                 });
             }
             set {

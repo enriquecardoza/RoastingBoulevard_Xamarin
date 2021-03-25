@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoastingBoulevard.Views.CreateEditUser">
+    <ContentPage.Resources>
+        <StyleSheet Source="../Styles/DefaultStyles.css"/>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <Grid Style="{StaticResource SubGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="80*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label FontSize="Small" Text="Nombre" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+            <Entry FontSize="Small" x:Name="enterName" Placeholder="Nombre" Grid.Row="0" Grid.Column="1" />
+            <Label FontSize="Small" Text="Apellidos" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterSurname" Placeholder="Apellidos" Grid.Row="1" Grid.Column="1" />
+            <Label FontSize="Small" Text="Email" Grid.Row="2" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterEmail" Placeholder="Email" Grid.Row="2" Grid.Column="1"/>
+            <Label FontSize="Small" Text="Telefono" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterPhone" Placeholder="Telefono" Grid.Row="3" Grid.Column="1"/>
+            <Label FontSize="Small" Text="Contraseña" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterPassword" Placeholder="Contraseña" Grid.Row="4" Grid.Column="1"/>
+            <Label FontSize="Small" Text="Confirmar contraseña" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterConfirmPassword" Placeholder="Confirmar contraseña" Grid.Row="5" Grid.Column="1"/>
+            <Label FontSize="Small" x:Name="errortext" Text="Error" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="2" TextColor="Red" HorizontalOptions="Center"/>
+            <Button x:Name="crearButton" Text="Crear" StyleClass="MainButton" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
