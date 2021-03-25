@@ -4,7 +4,7 @@
         <ListView  HasUnevenRows="True" Margin="10" SeparatorVisibility="None" ItemsSource="{Binding FoodsCombined}" x:Name="listaItems">
             <ListView.ItemTemplate>
                 <DataTemplate>
-                    <ViewCell Height="100" >
+                    <ViewCell Height="150" >
                         <Grid VerticalOptions="CenterAndExpand" Padding="5">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="50*" />

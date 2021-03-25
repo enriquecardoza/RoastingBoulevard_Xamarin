@@ -13,7 +13,7 @@
             <Setter Property="BorderWidth" Value="0"/>
         </Style>
         <Style TargetType="Label" x:Key="TextClearBackground" >
-            <Setter Property="TextColor" Value="#131313;"/>
+            <Setter Property="TextColor" Value="#131313"/>
              <Setter Property="VerticalTextAlignment" Value="Center"/>
         </Style>
         <Style TargetType="Label" x:Key="TextDarkBackground" >
@@ -31,6 +31,9 @@
             <Setter Property="RowSpacing" Value="10"/>
             <Setter Property="Margin" Value="10"/>
         </Style>
-
+        <Style TargetType="NavigationPage">
+            <Setter Property="BarBackgroundColor" Value="#ECDCCC "/>
+            <Setter Property="BarTextColor" Value="#131313"/>
+        </Style>
     </Application.Resources>
 </Application>
