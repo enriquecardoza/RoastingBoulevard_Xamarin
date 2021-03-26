@@ -3,7 +3,7 @@ using RoastingBoulevard.Models;
 
 namespace RoastingBoulevard.Data
 {
-    public static class AppData
+    public static class SharedData
     {
         public static User user;
         public static bool loggedUser=> user != null;

@@ -12,7 +12,7 @@ namespace RoastingBoulevard.Helpers
         {
             ByteArrayContent content = MainHelper.SerializarDato(User);
             //CREAMOS LA PETICION
-            string peticion = "/User/Insert";
+            string peticion = "/User";
             //REALIZAMOS LA LLAMADA AL API POST ENVIANDO EL CONTENIDO
             var respuesta = await MainHelper.SendPeticionPost(peticion, content);
             if (respuesta.IsSuccessStatusCode)
@@ -24,15 +24,21 @@ namespace RoastingBoulevard.Helpers
                 return false;
             }
         }
-        public async Task<User> GetUser(User fakeUser)
+        public static async Task<User> GetUser(string email,string password)
         {
+            User fakeUser = new User
+            {
+                Email = email,
+                Password = password
+            };
+
             ByteArrayContent content = MainHelper.SerializarDato(fakeUser);
             //CREAMOS LA PETICION
-            string peticion = "";
+            string peticion = "/User/Check";
             //REALIZAMOS LA LLAMADA AL API POST ENVIANDO EL CONTENIDO
             var respuesta = await MainHelper.SendPeticionPost(peticion, content);
             User realUser = await MainHelper.DeserializarRespuesta<User>(respuesta);
-            if (respuesta.IsSuccessStatusCode&& realUser.id != -1)
+            if (respuesta.IsSuccessStatusCode&& realUser != null && realUser.Id != -1 )
             {
                 return realUser;
             }

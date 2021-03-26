@@ -7,12 +7,13 @@
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
-        <Grid Grid.Row="0" ColumnDefinitions="*" RowDefinitions="7*,7*,5*,7*,40*" >
-            <Entry x:Name="emailEntry" Placeholder="Email" Grid.Row="0"/>
-            <Entry x:Name="passwordEntry" Placeholder="Contraseña" Grid.Row="1"/>
+        <Grid Grid.Row="0" ColumnDefinitions="*" RowDefinitions="7*,7*,5*,7*,2*,40*" Style="{StaticResource SubGrid}">
+            <Entry x:Name="emailEntry" Placeholder="Email" Grid.Row="0" Keyboard="Email"/>
+            <Entry x:Name="passwordEntry" Placeholder="Contraseña" Grid.Row="1" IsPassword="True"/>
             <Button x:Name="forgotButton" Text="¿Olvidastes la contraseña?" Grid.Row="2" TextColor="Black" FontAttributes="Bold" FontSize="Micro" HorizontalOptions="Start"   />
             <Button x:Name="loginButton" Text="Acceder" Grid.Row="3" Style="{StaticResource MainButton}" />
-            <Grid BackgroundColor="AntiqueWhite" Grid.Row="4" RowDefinitions="10*,15*,10*,14*,10*" ColumnDefinitions="*" >
+            <Label x:Name="errorInfo" Text="error" TextColor="Red" Grid.Row="4" HorizontalOptions="Center" />
+            <Grid BackgroundColor="AntiqueWhite" Grid.Row="5" RowDefinitions="10*,15*,10*,14*,10*" ColumnDefinitions="*" >
                 <Image Source="icon.png" Grid.Row="1"/>
                 <Label Text="¿Que esperas para registrarse?" Grid.Row="2" HorizontalOptions="CenterAndExpand" VerticalOptions="Center" Style="{StaticResource TextClearBackground}" FontSize="Medium"/>
                 <Button x:Name="registerButton" Text="Registrarse" Style="{StaticResource MainButton}" Grid.Row="3" HorizontalOptions="Center" WidthRequest="200"/>

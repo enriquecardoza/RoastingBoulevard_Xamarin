@@ -1,16 +1,23 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 
 namespace RoastingBoulevard.Models
 {
     public class User
     {
-        public int id;
-        public string name;
-        public string surname;
-        public string email;
-        public int phone;
-        public string password;
+        [JsonProperty("Id")]
+        public int Id { get; set; }
+        [JsonProperty("Name")]
+        public string Name { get; set; }
+        [JsonProperty("Surname")]
+        public string Surname { get; set; }
+        [JsonProperty("Email")]
+        public string Email { get; set; }
+        [JsonProperty("Phone")]
+        public int Phone { get; set; }
+        [JsonProperty("Password")]
+        public string Password { get; set; }
         public List<Address> addresses = new List<Address>();
         public List<Delivery> deliveries = new List<Delivery>();
 
@@ -20,30 +27,12 @@ namespace RoastingBoulevard.Models
 
         public User(int id, string name, string surname, string email, int phone)
         {
-            this.id = id;
-            this.name = name;
-            this.surname = surname;
-            this.email = email;
-            this.phone = phone;
+            this.Id = id;
+            this.Name = name;
+            this.Surname = surname;
+            this.Email = email;
+            this.Phone = phone;
         }
 
-        public User(int id, string name, string surname, string email, int phone, List<Address> addresses, List<Delivery> deliveries) : this(id, name, surname, email, phone)
-        {
-            this.addresses = addresses;
-            this.deliveries = deliveries;
-        }
-
-        public void RemoveAddress(Address address)
-        {
-            addresses.Remove(address);
-        }
-        public void AddAddress(Address address)
-        {
-            addresses.Add(address);
-        }
-        public void AddDelivery(Delivery delivery)
-        {
-            deliveries.Add(delivery);
-        }
     }
 }

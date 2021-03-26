@@ -31,7 +31,7 @@
             <Label FontSize="Small" Text="Contraseña" Grid.Row="4" Grid.Column="0" VerticalOptions="Center"/>
             <Entry FontSize="Small" x:Name="enterPassword" Placeholder="Contraseña" Grid.Row="4" Grid.Column="1" IsPassword="True"/>
             <Label FontSize="Small" Text="Confirmar contraseña" Grid.Row="5" Grid.Column="0" VerticalOptions="Center"/>
-            <Entry FontSize="Small" x:Name="enterConfirmPassword" Placeholder="Confirmar contraseña" Grid.Row="5" Grid.Column="1" Keyboard="Telephone" IsPassword="True"/>
+            <Entry FontSize="Small" x:Name="enterConfirmPassword" Placeholder="Confirmar contraseña" Grid.Row="5" Grid.Column="1"  IsPassword="True"/>
             <Label FontSize="Small" x:Name="errortext" Text="Error" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="2" TextColor="Red" HorizontalOptions="Center"/>
             <Button x:Name="crearButton" Text="Crear" Style="{StaticResource MainButton}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
 

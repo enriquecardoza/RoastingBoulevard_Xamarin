@@ -1,6 +1,8 @@
-﻿using System;
+﻿using RoastingBoulevard.Data;
+using RoastingBoulevard.Models;
+using System;
 using System.Collections.Generic;
-
+using System.Threading.Tasks;
 using Xamarin.Forms;
 
 namespace RoastingBoulevard.Views
@@ -11,8 +13,36 @@ namespace RoastingBoulevard.Views
         public Login()
         {
             InitializeComponent();
-            registerButton.Clicked += (object sender, EventArgs arg) => {
-                Tools.Tools.PushAsync("Crear perfil",this.Navigation,new CreateEditUser()); };
+            registerButton.Clicked += (object sender, EventArgs arg) =>
+            {
+                Tools.Tools.PushAsync("Crear perfil", this.Navigation, new CreateEditUser());
+            };
+            loginButton.Clicked += LoadUser;
+            errorInfo.Text = "";
+        }
+
+        private void LoadUser(object sender, EventArgs arg)
+        {
+            Task.Run(async () =>
+            {
+                User fulluser = await Helpers.HelperUser.GetUser(emailEntry.Text, passwordEntry.Text);
+                if (fulluser != null)
+                {
+                    SharedData.user = fulluser;
+                    Tools.Tools.UseActionMainThread(() =>
+                    {
+                        errorInfo.Text = "";
+                    });
+                }
+                else
+                {
+                    Tools.Tools.UseActionMainThread(() =>
+                    {
+                        errorInfo.Text = "Email o contraseña incorrecto";
+                    });
+                }
+            });
+
         }
 
 

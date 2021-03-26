@@ -26,11 +26,11 @@ namespace RoastingBoulevard.Views
             if (CheckEntriesCorrect())
             {
                 User newUser = new User();
-                newUser.name = enterName.Text;
-                newUser.surname = enterSurname.Text;
-                newUser.email = enterEmail.Text;
-                newUser.phone = int.Parse(enterPhone.Text);
-                newUser.password = enterPassword.Text;
+                newUser.Name = enterName.Text;
+                newUser.Surname = enterSurname.Text;
+                newUser.Email = enterEmail.Text;
+                newUser.Phone = int.Parse(enterPhone.Text);
+                newUser.Password = enterPassword.Text;
                
                 Task.Run(async () =>
                 {
@@ -44,7 +44,7 @@ namespace RoastingBoulevard.Views
                     }
                     else
                         Tools.Tools.UseActionMainThread(() => {
-                            errortext.Text = "Error al enviar datos";
+                            errortext.Text = "Error al enviar datos, el email ya existe";
                         });
                   
 
