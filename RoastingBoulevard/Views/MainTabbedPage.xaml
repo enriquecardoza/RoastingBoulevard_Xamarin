@@ -8,12 +8,11 @@
     xmlns:local="clr-namespace:RoastingBoulevard.Views"
      SelectedTabColor="#CE8D41" 
     UnselectedTabColor="#000000" BarBackgroundColor="#ECDCCC"
-     x:Name="mainTabPage"
-
+     x:Name="mainTabPage" 
     >
     <local:MainPage/>
     <local:Dishes/>
-    <local:Login/>
+    <local:Login x:Name="loginTab"/>
 </TabbedPage>
 
 

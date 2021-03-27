@@ -28,9 +28,10 @@ namespace RoastingBoulevard.Views
                 User fulluser = await Helpers.HelperUser.GetUser(emailEntry.Text, passwordEntry.Text);
                 if (fulluser != null)
                 {
-                    SharedData.user = fulluser;
                     Tools.Tools.UseActionMainThread(() =>
                     {
+                        MainTabbedPage.instance.ChangueLoginToProfilePage();
+                        SharedData.user = fulluser;
                         errorInfo.Text = "";
                     });
                 }

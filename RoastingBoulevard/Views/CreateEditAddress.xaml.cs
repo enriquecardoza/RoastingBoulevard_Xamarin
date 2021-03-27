@@ -39,6 +39,7 @@ namespace RoastingBoulevard.Views
                         errortext.Text = "Datos guardados";
                     });
                     Tools.Tools.PopToRootAsync(this.Navigation);
+                    MainTabbedPage.instance.ChangueLoginToProfilePage();
                 }
                 else
                     Tools.Tools.UseActionMainThread(() =>

@@ -18,10 +18,34 @@ namespace RoastingBoulevard.Views
         public CreateEditUser()
         {
             InitializeComponent();
-            crearButton.Clicked += CrearUser;
+
             errortext.Text = "";
+
+            if (SharedData.user != null)
+            {
+                enterName.Text = SharedData.user.Name;
+                enterSurname.Text = SharedData.user.Surname;
+                enterEmail.Text = SharedData.user.Email;
+                enterPhone.Text = SharedData.user.Phone.ToString();
+                SetVisiblePassword(false);
+                crearButton.Clicked += EditarUser;
+                crearButton.Text = "Editar";
+            }
+            else
+            {
+                SetVisiblePassword(true);
+                crearButton.Clicked += CrearUser;
+                crearButton.Text = "Añadir dirección";
+            }
         }
 
+        private void SetVisiblePassword(bool visible)
+        {
+            enterPassword.IsVisible = visible;
+            enterConfirmPassword.IsVisible = visible;
+            infoConfirmPassword.IsVisible = visible;
+            infoEnterPassword.IsVisible = visible;
+        }
         private void CrearUser(object sender, EventArgs arg)
         {
             if (CheckEntriesCorrect())
@@ -37,7 +61,7 @@ namespace RoastingBoulevard.Views
                 {
 
                     int b = await Helpers.HelperUser.CheckIfEmailExists(enterEmail.Text);
-                    if (b==1)
+                    if (b == 1)
                     {
                         Tools.Tools.UseActionMainThread(() =>
                         {
@@ -45,7 +69,7 @@ namespace RoastingBoulevard.Views
                             Tools.Tools.PushAsync("Escribir direccion de entrega", this.Navigation, new CreateEditAddress());
                         });
                     }
-                    else if(b == 0)
+                    else if (b == 0)
                         Tools.Tools.UseActionMainThread(() =>
                         {
                             errortext.Text = "Error al enviar datos, el email ya existe";
@@ -61,7 +85,12 @@ namespace RoastingBoulevard.Views
 
             }
         }
-
+        private void EditarUser(object sender, EventArgs arg)
+        {
+            if (CheckEntriesCorrect())
+            {
+            }
+        }
         private bool CheckEntriesCorrect()
         {
             if (string.IsNullOrEmpty(enterName.Text) ||

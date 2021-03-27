@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoastingBoulevard.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,23 @@ namespace RoastingBoulevard.Views
         public Profile()
         {
             InitializeComponent();
+            changueDirection.Clicked += (object sender, EventArgs arg) =>
+            {
+                Tools.Tools.PushAsync("Editar dirección", this.Navigation, new CreateEditAddress());
+            };
+            changueData.Clicked += (object sender, EventArgs arg) =>
+            {
+                Tools.Tools.PushAsync("Editar datos", this.Navigation, new CreateEditUser());
+            };
+            seeDeliveies.Clicked += (object sender, EventArgs arg) =>
+            {
+                Tools.Tools.PushAsync("Pedidos", this.Navigation, new DeliveriesList());
+            };
+            closeSession.Clicked += (object sender, EventArgs arg) =>
+            {
+                SharedData.user = null;
+                MainTabbedPage.instance.ChangueProfileToLoginpage();
+            };
         }
     }
 }

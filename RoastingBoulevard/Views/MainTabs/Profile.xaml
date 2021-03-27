@@ -1,12 +1,24 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RoastingBoulevard.Views.Profile">
+             x:Class="RoastingBoulevard.Views.Profile" Title="Perfil">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <Grid RowDefinitions="15*,3*,20*,40*">
+            <Grid RowDefinitions="*"
+        ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" Grid.Row="0" Padding="10">
+                <Label Text="Hola" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextDarkBackground}" FontSize="24" FontAttributes="Bold" Padding="10" x:Name="saludo" VerticalOptions="CenterAndExpand"/>
+                <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
+
+            </Grid>
+            <BoxView Grid.Row="1"/>
+            <Grid RowDefinitions="10*,10*,10*,10*,10*" ColumnDefinitions="*" RowSpacing="0" Grid.Row="2" >
+                <Button  x:Name="changueDirection" BorderColor="Black" BorderWidth="1" Grid.Row="0" Text="Direccion de entrega" BackgroundColor="Transparent" />
+                <Button  x:Name="changueData" BorderColor="Black" BorderWidth="1" Grid.Row="1" Text="Datos personales" BackgroundColor="Transparent"/>
+                <BoxView  Grid.Row="2"/>
+                <Button  x:Name="seeDeliveies" BorderColor="Black" Grid.Column="0" BorderWidth="1" Grid.Row="3" Text="Mis pedidos" BackgroundColor="Transparent" TranslationX="0" HorizontalOptions="FillAndExpand" Grid.ColumnSpan="0" FlowDirection="MatchParent"/>
+                <Button  x:Name="closeSession" BorderColor="Black" BorderWidth="1" Grid.Row="4" Text="cerrar session" BackgroundColor="Transparent"/>
+            </Grid>
+            <BoxView Grid.Row="3"/>
+        </Grid>
     </ContentPage.Content>
 </ContentPage>
