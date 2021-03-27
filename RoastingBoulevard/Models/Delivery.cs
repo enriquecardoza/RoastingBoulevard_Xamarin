@@ -8,7 +8,6 @@ namespace RoastingBoulevard.Models
        public int id;
        public List<Food> foods = new List<Food>();
        public List<int> amountsOfFoods = new List<int>();
-       public Address address;
        public DateTime createdDate;
        public PaymentMethod paymentMethod;
        public DeliveryState deliveryState;
@@ -21,12 +20,11 @@ namespace RoastingBoulevard.Models
         {
         }
 
-        public Delivery(int id, List<Food> foods, List<int> amountsOfFoods, Address address)
+        public Delivery(int id, List<Food> foods, List<int> amountsOfFoods)
         {
             this.id = id;
             this.foods = foods;
             this.amountsOfFoods = amountsOfFoods;
-            this.address = address;
             this.createdDate = DateTime.Now;
         }
 

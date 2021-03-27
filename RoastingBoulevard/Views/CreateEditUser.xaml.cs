@@ -7,6 +7,7 @@ using RoastingBoulevard.Models;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 using RoastingBoulevard.Tools;
+using RoastingBoulevard.Data;
 
 namespace RoastingBoulevard.Views
 {
@@ -31,23 +32,31 @@ namespace RoastingBoulevard.Views
                 newUser.Email = enterEmail.Text;
                 newUser.Phone = int.Parse(enterPhone.Text);
                 newUser.Password = enterPassword.Text;
-               
+                SharedData.user = newUser;
                 Task.Run(async () =>
                 {
-                    bool b = await Helpers.HelperUser.InsertUser(newUser);
-                    if (b)
-                    {
-                        Tools.Tools.UseActionMainThread(()=> {
-                            errortext.Text = "Datos guardados";
-                        });
-                        Tools.Tools.PopToRootAsync(this.Navigation);
-                    }
-                    else
-                        Tools.Tools.UseActionMainThread(() => {
-                            errortext.Text = "Error al enviar datos, el email ya existe";
-                        });
-                  
 
+                    int b = await Helpers.HelperUser.CheckIfEmailExists(enterEmail.Text);
+                    if (b==1)
+                    {
+                        Tools.Tools.UseActionMainThread(() =>
+                        {
+
+                            Tools.Tools.PushAsync("Escribir direccion de entrega", this.Navigation, new CreateEditAddress());
+                        });
+                    }
+                    else if(b == 0)
+                        Tools.Tools.UseActionMainThread(() =>
+                        {
+                            errortext.Text = "Error al enviar datos, el email ya existe";
+                            errortext.TextColor = Color.Red;
+                        });
+                    else
+                        Tools.Tools.UseActionMainThread(() =>
+                        {
+                            errortext.Text = "Error al enviar datos";
+                            errortext.TextColor = Color.Red;
+                        });
                 });
 
             }

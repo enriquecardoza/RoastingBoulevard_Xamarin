@@ -1,0 +1,43 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoastingBoulevard.Views.CreateEditAddress">
+
+    <ContentPage.Content>
+        <Grid Style="{StaticResource SubGrid}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="40*" />
+                <ColumnDefinition Width="80*" />
+            </Grid.ColumnDefinitions>
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Label FontSize="Small" Text="Direccion" Grid.Row="0" Grid.Column="0" VerticalOptions="Center" />
+            <Entry FontSize="Small" x:Name="enterDireccion" Placeholder="Direccion" Grid.Row="0" Grid.Column="1" />
+            <Label FontSize="Small" Text="Numero" Grid.Row="1" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterNumber" Placeholder="Numero" Grid.Row="1" Grid.Column="1" Keyboard="Numeric" />
+            <Label FontSize="Small" Text="Codigo postal" Grid.Row="2" Grid.Column="0" VerticalOptions="Center" />
+            <Entry FontSize="Small" x:Name="enterCodigo" Placeholder="Codigo postal" Grid.Row="2" Grid.Column="1" Keyboard="Numeric"/>
+            <Label FontSize="Small" Text="Ciudad" Grid.Row="3" Grid.Column="0" VerticalOptions="Center"/>
+            <Entry FontSize="Small" x:Name="enterCity" Placeholder="Ciudad" Grid.Row="3" Grid.Column="1"/>
+            <Picker Title="Portal/Escalera/Piso ..." x:Name="Spinnertype" SelectedItem="0" Grid.Row="4" Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="2" HorizontalOptions="Center">
+            <Picker.Items>
+                <x:String>Ninguno</x:String>
+                <x:String>Portal</x:String>
+                <x:String>Escalera</x:String>
+                <x:String>Piso</x:String>
+            </Picker.Items>
+            </Picker>
+            <Label FontSize="Small" x:Name="errortext" Text="Error" Grid.Row="6" Grid.Column="0" VerticalOptions="Center" Grid.ColumnSpan="2" TextColor="Red" HorizontalOptions="Center"/>
+            <Button x:Name="crearButton" Text="Crear" Style="{StaticResource MainButton}" Grid.Row="7" Grid.Column="0" Grid.ColumnSpan="2"/>
+
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
