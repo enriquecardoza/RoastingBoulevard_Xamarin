@@ -18,7 +18,7 @@
         <Grid
         RowDefinitions="10*, 10*, 40*, 10*,10*"
         ColumnDefinitions="*"  Grid.Row="1" Style="{StaticResource MainGrid}">
-            <Button Text="Empezar orden" Style="{StaticResource MainButton}" Grid.Row="0"  />
+            <Button x:Name="startOrderButton" Text="Empezar orden" Style="{StaticResource MainButton}" Grid.Row="0"  />
             <Label Text="Donde estamos?" Grid.Row="1" Style="{StaticResource TextClearBackground}" />
             <BoxView Grid.Row="2" BackgroundColor="AliceBlue"/>
             <Label Text="Calle falsa n 123" Grid.Row="3"  VerticalTextAlignment="Center" Style="{StaticResource TextClearBackground}"/>

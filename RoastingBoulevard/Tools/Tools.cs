@@ -75,7 +75,7 @@ namespace RoastingBoulevard.Tools
         }
         public static void UseActionMainThread(Action action)
         {
-            Device.BeginInvokeOnMainThread(async () =>
+            Device.BeginInvokeOnMainThread(() =>
             {
                 action.Invoke();
             });

@@ -49,7 +49,6 @@ namespace RoastingBoulevard.Helpers
                 return null;
             }
         }
-
         public static async Task<int> CheckIfEmailExists(string email)
         {
             ByteArrayContent content = MainHelper.SerializarDato(email);
@@ -64,6 +63,24 @@ namespace RoastingBoulevard.Helpers
             else
             {
                 return -1;
+            }
+        }
+
+        public static async Task<bool> EditUser(User User)
+        {
+            ByteArrayContent content = MainHelper.SerializarDato(User);
+            //CREAMOS LA PETICION
+            string peticion = "/User";
+            //REALIZAMOS LA LLAMADA AL API POST ENVIANDO EL CONTENIDO
+            var respuesta = await MainHelper.SendPeticionPut(peticion, content);
+            // User dato = await MainHelper.DeserializarRespuesta<User>(respuesta);
+            if (respuesta.IsSuccessStatusCode)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
     }

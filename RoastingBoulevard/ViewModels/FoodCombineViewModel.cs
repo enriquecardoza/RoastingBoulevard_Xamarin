@@ -21,31 +21,5 @@ namespace RoastingBoulevard.ViewModels
             }
         }
 
-        public static ICommand TabButtonPressed
-        {
-            get
-            {
-                return new Command(async (object componentIdentifier) =>
-                {
-                  onTabPressed(componentIdentifier);
-                });
-            }
-            set {
-
-                int n;
-            }
-        }
-
-        public static void onTabPressed(object componentIdentifier)
-        {
-            Dishes.instance.DisplayAlert("al",componentIdentifier.ToString(),"ok");
-            if (componentIdentifier is string)
-            {
-                switch ((string)componentIdentifier)
-                {
-                }
-            }
-        }
-
     }
 }

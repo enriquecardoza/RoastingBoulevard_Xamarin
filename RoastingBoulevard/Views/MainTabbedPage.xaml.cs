@@ -21,6 +21,7 @@ namespace RoastingBoulevard.Views
             mainTabPage.BindingContext = vm;
             mainTabPage.SelectedItem = 0;
             instance = this;
+
         }
 
         public void ChangueLoginToProfilePage()
@@ -37,6 +38,14 @@ namespace RoastingBoulevard.Views
             mainTabPage.Children.Add(p);
             mainTabPage.Children.RemoveAt(2);
             mainTabPage.TabIndex = 2;
+            mainTabPage.SelectedItem = p;
+        }
+
+        public void ChangueSelectedTab(int index)
+        {
+            mainTabPage.TabIndex = 2;
+
+            Page p = mainTabPage.Children[index];
             mainTabPage.SelectedItem = p;
         }
     }

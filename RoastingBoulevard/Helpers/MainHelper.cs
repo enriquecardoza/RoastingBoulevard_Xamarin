@@ -45,6 +45,12 @@ namespace RoastingBoulevard.Helpers
             HttpClient client = CrearCliente();
             return await client.PostAsync(uri, content);
         }
+        public static async Task<HttpResponseMessage> SendPeticionPut(string peticion, ByteArrayContent content)
+        {
+            var uri = new Uri(string.Format(mainRoute + peticion, string.Empty));
+            HttpClient client = CrearCliente();
+            return await client.PutAsync(uri, content);
+        }
         public static ByteArrayContent SerializarDato<T>(T dato)
         {
             string jsonApuesta = JsonConvert.SerializeObject(dato, Formatting.Indented);

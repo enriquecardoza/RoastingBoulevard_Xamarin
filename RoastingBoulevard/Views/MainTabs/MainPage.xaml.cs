@@ -13,6 +13,9 @@ namespace RoastingBoulevard.Views
         public MainPage()
         {
             InitializeComponent();
+            startOrderButton.Clicked += (object sender, EventArgs arg) => { 
+                MainTabbedPage.instance.ChangueSelectedTab(2); 
+            };
         }
     }
 }
