@@ -14,6 +14,7 @@ namespace RoastingBoulevard.Views
     public partial class MainTabbedPage : TabbedPage
     {
         public static MainTabbedPage instance;
+        private bool shoppingCartShowed = false;
         public MainTabbedPage()
         {
             InitializeComponent();
@@ -28,19 +29,33 @@ namespace RoastingBoulevard.Views
         {
             Profile p = new Profile();
             mainTabPage.Children.Add(p);
-            mainTabPage.Children.RemoveAt(2);
-            mainTabPage.TabIndex = 2;
+            mainTabPage.Children.Remove(mainTabPage.Children.OfType<Login>().First());
+            mainTabPage.TabIndex = mainTabPage.Children.IndexOf(p);
             mainTabPage.SelectedItem = p;
         }
         public void ChangueProfileToLoginpage()
         {
             Login p = new Login();
             mainTabPage.Children.Add(p);
-            mainTabPage.Children.RemoveAt(2);
-            mainTabPage.TabIndex = 2;
+            mainTabPage.Children.Remove(mainTabPage.Children.OfType<Profile>().First());
+            mainTabPage.TabIndex = mainTabPage.Children.IndexOf(p);
             mainTabPage.SelectedItem = p;
         }
-
+        public void ShowShoppingCart()
+        {
+            if (shoppingCartShowed)
+                return;
+            ShoppingCart p = new ShoppingCart();
+            mainTabPage.Children.Insert(2,p);
+            shoppingCartShowed = true;
+        }
+        public void HideShoppingCart()
+        {
+            if (!shoppingCartShowed)
+                return;
+            mainTabPage.Children.Remove(mainTabPage.Children.OfType<ShoppingCart>().First());
+            shoppingCartShowed = false;
+        }
         public void ChangueSelectedTab(int index)
         {
             mainTabPage.TabIndex = 2;
@@ -48,5 +63,6 @@ namespace RoastingBoulevard.Views
             Page p = mainTabPage.Children[index];
             mainTabPage.SelectedItem = p;
         }
+
     }
 }

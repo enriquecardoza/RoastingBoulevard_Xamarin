@@ -12,7 +12,7 @@
     >
     <local:MainPage/>
     <local:Dishes/>
-    <local:Login x:Name="loginTab"/>
+    <local:Login/>
 </TabbedPage>
 
 

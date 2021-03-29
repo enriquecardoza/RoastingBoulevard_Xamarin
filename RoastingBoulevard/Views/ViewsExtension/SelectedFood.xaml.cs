@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using RoastingBoulevard.Data;
 using RoastingBoulevard.Models;
 using RoastingBoulevard.Tools;
 using Xamarin.Forms;
@@ -46,6 +47,8 @@ namespace RoastingBoulevard.Views
         private async void BtAdd_Clicked(object sender, EventArgs e)
         {
             await callback.Invoke(true);
+            SharedData.actualDeliveryFood.Add(foodShow);
+            MainTabbedPage.instance.ShowShoppingCart();
         }
 
         private async void BtClose_Clicked(object sender, EventArgs e)
