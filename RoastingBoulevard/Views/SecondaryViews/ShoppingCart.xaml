@@ -1,16 +1,19 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="RoastingBoulevard.Views.ShoppingCart" Title="Cesta">
-  <ListView x:Name="MyListView"
-            ItemsSource="{Binding Foods}"
+             x:Class="RoastingBoulevard.Views.ShoppingCart" Title="Cesta" x:Name="mainPage">
+    <ListView x:Name="MyListView"
+            ItemsSource="{Binding Path=Foods}"
             ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement" >
     <!--Built in Cells-->
     <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Label Text="ss"/>
+                    <Grid ColumnDefinitions="*,*">
+                        <Label Text="{Binding Path=Food.Name}" Grid.Column="0"/>
+                        <Label Text="{Binding Path=Amount}" Grid.Column="1"/>
+                    </Grid>
                 </ViewCell>
             </DataTemplate>
     </ListView.ItemTemplate>

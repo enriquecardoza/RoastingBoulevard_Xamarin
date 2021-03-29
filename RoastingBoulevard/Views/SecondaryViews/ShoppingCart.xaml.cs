@@ -1,4 +1,6 @@
-﻿using RoastingBoulevard.ViewModels;
+﻿using RoastingBoulevard.Data;
+using RoastingBoulevard.Models;
+using RoastingBoulevard.ViewModels;
 using System;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
@@ -13,12 +15,14 @@ namespace RoastingBoulevard.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ShoppingCart : ContentPage
     {
-        ShoppingCartViewModel viewModel = new ShoppingCartViewModel();
+        public ShoppingCartViewModel viewModel = new ShoppingCartViewModel();
+        public static ShoppingCart instance;
         public ShoppingCart()
         {
             InitializeComponent();
-
-            MyListView.ItemsSource = viewModel.Foods;
+            instance = this;
+            viewModel = new ShoppingCartViewModel();
+            mainPage.BindingContext= viewModel;
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
@@ -31,5 +35,10 @@ namespace RoastingBoulevard.Views
             //Deselect Item
             //((ListView)sender).SelectedItem = null;
         }
+        public void AddToList(Food food)
+        {
+            viewModel.AddFood(food);
+        }
+
     }
 }

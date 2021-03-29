@@ -14,7 +14,7 @@ namespace RoastingBoulevard.Views
     {
         private Func<bool, Task> callback;
         private readonly IAlertDialogService alertDialogService;
-        Food foodShow;
+        Food foodShowed;
         public SelectedFood(Food food, Func<bool, Task> callback)
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace RoastingBoulevard.Views
             }
             //FrContent.HeightRequest = gridFood.Height + 200 + FrContent.Padding.HorizontalThickness + gridFood.Margin.HorizontalThickness;
             FrContent.Opacity = 1;
-            foodShow = food;
+            foodShowed = food;
         }
         protected override void OnSizeAllocated(double width, double height)
         {
@@ -47,8 +47,8 @@ namespace RoastingBoulevard.Views
         private async void BtAdd_Clicked(object sender, EventArgs e)
         {
             await callback.Invoke(true);
-            SharedData.actualDeliveryFood.Add(foodShow);
             MainTabbedPage.instance.ShowShoppingCart();
+            ShoppingCart.instance.AddToList(foodShowed);
         }
 
         private async void BtClose_Clicked(object sender, EventArgs e)

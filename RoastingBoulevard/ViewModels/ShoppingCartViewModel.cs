@@ -3,21 +3,22 @@ using RoastingBoulevard.Models;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Linq;
 using System.Text;
 
 namespace RoastingBoulevard.ViewModels
 {
-    class ShoppingCartViewModel:ViewModelBase
+    public class ShoppingCartViewModel : ViewModelBase
     {
         public ShoppingCartViewModel()
         {
-            Foods = new ObservableCollection<Food>(SharedData.actualDeliveryFood);
+            Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.foods);
         }
 
 
-        private ObservableCollection<Food> _food;
+        private ObservableCollection<FoodDeliveryContainer> _food;
 
-        public ObservableCollection<Food> Foods
+        public ObservableCollection<FoodDeliveryContainer> Foods
         {
             get { return this._food; }
             set
@@ -27,5 +28,59 @@ namespace RoastingBoulevard.ViewModels
             }
         }
 
+
+        public void AddFood(Food food)
+        {
+            FoodDeliveryContainer cont = null;
+            if (Foods.Count > 0)
+                cont = Foods.FirstOrDefault(x => x.Food == food);
+            if (cont != null)
+            {
+                int pos = Foods.IndexOf(cont);
+                int amoutn = cont.Amount;
+                Foods.Remove(cont);
+                Foods.Insert(pos,new FoodDeliveryContainer
+                {
+                    Food = food,
+                    Amount = amoutn+1
+                });
+            }
+            else
+            {
+
+                Foods.Add(new FoodDeliveryContainer
+                {
+                    Food = food,
+                    Amount = 1
+                });
+                
+            }
+            OnPropertyChanged(nameof(Foods));
+           // Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.foods);
+        }
+
+        public void RemoveFood(Food food)
+        {
+            FoodDeliveryContainer cont = (FoodDeliveryContainer)Foods.Where(x => x.Food == food);
+            if (cont != null)
+            {
+                int pos = Foods.IndexOf(cont);
+                int amoutn = cont.Amount;
+                if (Foods[pos].Amount - 1 <= 0)
+                {
+                    Foods.Remove(cont);
+                }
+                else
+                {
+                    Foods.Remove(cont);
+                    Foods.Insert(pos, new FoodDeliveryContainer
+                    {
+                        Food = food,
+                        Amount = amoutn - 1
+                    });
+                }
+                OnPropertyChanged(nameof(Foods));
+            }
+        }
     }
 }
