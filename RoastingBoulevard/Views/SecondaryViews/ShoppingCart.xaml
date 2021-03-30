@@ -4,15 +4,15 @@
              x:Class="RoastingBoulevard.Views.ShoppingCart" Title="Cesta" x:Name="mainPage">
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Path=Foods}"
-            ItemTapped="Handle_ItemTapped"
             CachingStrategy="RecycleElement" >
     <!--Built in Cells-->
     <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <Grid ColumnDefinitions="*,*">
-                        <Label Text="{Binding Path=Food.Name}" Grid.Column="0"/>
-                        <Label Text="{Binding Path=Amount}" Grid.Column="1"/>
+                    <Grid ColumnDefinitions="60*,30*,10*">
+                        <Label Text="{Binding Path=Food.Name}" Grid.Column="0" VerticalTextAlignment="Center"/>
+                        <Label Text="{Binding Path=Amount}" Grid.Column="1" VerticalTextAlignment="Center"/>
+                        <ImageButton Source="icon_trash.png" Clicked="ShowAlertToErase" CommandParameter="{Binding Path=Food}" BackgroundColor="Transparent" Grid.Column="2"/>
                     </Grid>
                 </ViewCell>
             </DataTemplate>

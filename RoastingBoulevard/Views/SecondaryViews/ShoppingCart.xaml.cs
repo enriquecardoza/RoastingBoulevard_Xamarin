@@ -22,9 +22,17 @@ namespace RoastingBoulevard.Views
             InitializeComponent();
             instance = this;
             viewModel = new ShoppingCartViewModel();
-            mainPage.BindingContext= viewModel;
-        }
+            mainPage.BindingContext = viewModel;
+            MyListView.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                // don't do anything if we just de-selected the row.
 
+                if (e.Item == null) return;
+
+                if (sender is ListView lv) lv.SelectedItem = null;
+            };
+        }
+        /*
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
         {
             if (e.Item == null)
@@ -35,10 +43,23 @@ namespace RoastingBoulevard.Views
             //Deselect Item
             //((ListView)sender).SelectedItem = null;
         }
+        */
         public void AddToList(Food food)
         {
             viewModel.AddFood(food);
         }
+
+        public async void ShowAlertToErase(object sender, EventArgs e)
+        {
+            Food food = (Food)(((ImageButton)sender).CommandParameter);
+            bool answer = await DisplayAlert("Borrar comida", "¿Seguro que quieres borrarla de la cesta?" , "Si", "No");
+
+            if (answer)
+            {
+                viewModel.RemoveFullFood(food);
+            }
+        }
+
 
     }
 }

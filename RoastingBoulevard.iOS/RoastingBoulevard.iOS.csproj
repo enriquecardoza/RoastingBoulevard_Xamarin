@@ -174,5 +174,7 @@
     <BundleResource Include="Resources\tarta_queso.jpeg" />
     <BundleResource Include="Resources\close.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <BundleResource Include="Resources\icon_trash.png" />
+  </ItemGroup>
 </Project>

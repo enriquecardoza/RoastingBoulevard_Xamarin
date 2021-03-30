@@ -1,5 +1,6 @@
 ﻿using RoastingBoulevard.Data;
 using RoastingBoulevard.Models;
+using RoastingBoulevard.Views;
 using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
@@ -39,10 +40,10 @@ namespace RoastingBoulevard.ViewModels
                 int pos = Foods.IndexOf(cont);
                 int amoutn = cont.Amount;
                 Foods.Remove(cont);
-                Foods.Insert(pos,new FoodDeliveryContainer
+                Foods.Insert(pos, new FoodDeliveryContainer
                 {
                     Food = food,
-                    Amount = amoutn+1
+                    Amount = amoutn + 1
                 });
             }
             else
@@ -53,15 +54,17 @@ namespace RoastingBoulevard.ViewModels
                     Food = food,
                     Amount = 1
                 });
-                
+
             }
-            OnPropertyChanged(nameof(Foods));
-           // Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.foods);
+            SaveChangues();
+            // Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.foods);
         }
 
         public void RemoveFood(Food food)
         {
-            FoodDeliveryContainer cont = (FoodDeliveryContainer)Foods.Where(x => x.Food == food);
+            FoodDeliveryContainer cont = null;
+            if (Foods.Count > 0)
+                cont = Foods.FirstOrDefault(x => x.Food == food);
             if (cont != null)
             {
                 int pos = Foods.IndexOf(cont);
@@ -79,8 +82,30 @@ namespace RoastingBoulevard.ViewModels
                         Amount = amoutn - 1
                     });
                 }
-                OnPropertyChanged(nameof(Foods));
+                SaveChangues();
             }
+        }
+
+        public void RemoveFullFood(Food food)
+        {
+            FoodDeliveryContainer cont = null;
+            if (Foods.Count > 0)
+                cont = Foods.FirstOrDefault(x => x.Food == food);
+            if (cont != null)
+            {
+                Foods.Remove(cont);
+
+                SaveChangues();
+            }
+        }
+
+        private void SaveChangues()
+        {
+            if (Foods.Count <= 0)
+            {
+                MainTabbedPage.instance.HideShoppingCart();
+            }
+            OnPropertyChanged(nameof(Foods));
         }
     }
 }
