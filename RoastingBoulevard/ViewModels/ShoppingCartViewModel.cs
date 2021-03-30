@@ -13,7 +13,7 @@ namespace RoastingBoulevard.ViewModels
     {
         public ShoppingCartViewModel()
         {
-            Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.foods);
+            Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.Foods);
         }
 
 

@@ -21,15 +21,16 @@
   <ItemGroup>
     <Folder Include="Data\" />
     <Folder Include="Tools\CustomAlertDialog\" />
+    <Folder Include="Views\ToDo\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Views\SecondaryViews\PayView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\SecondaryViews\CreateEditAddress.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\SecondaryViews\ShoppingCart.xaml">
-      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
-    </EmbeddedResource>
-    <EmbeddedResource Update="Views\ToDo\DeliveriesList.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
     <EmbeddedResource Update="Views\MainTabs\Profile.xaml">

@@ -2,37 +2,24 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoastingBoulevard.Views.ShoppingCart" Title="Cesta" x:Name="mainPage">
-    <ListView x:Name="MyListView"
+
+    <Grid RowDefinitions="80*,10*">
+        <ListView x:Name="MyListView"
             ItemsSource="{Binding Path=Foods}"
-            CachingStrategy="RecycleElement" >
-    <!--Built in Cells-->
-    <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <Grid ColumnDefinitions="60*,30*,10*">
-                        <Label Text="{Binding Path=Food.Name}" Grid.Column="0" VerticalTextAlignment="Center"/>
-                        <Label Text="{Binding Path=Amount}" Grid.Column="1" VerticalTextAlignment="Center"/>
-                        <ImageButton Source="icon_trash.png" Clicked="ShowAlertToErase" CommandParameter="{Binding Path=Food}" BackgroundColor="Transparent" Grid.Column="2"/>
-                    </Grid>
-                </ViewCell>
-            </DataTemplate>
-    </ListView.ItemTemplate>
-    
-    <!--Custom View Cells-->
-    <!--
-    <ListView.ItemTemplate>
-      <DataTemplate>
-      <TextCell Text="{Binding .}" />
-        <ViewCell>
-          <StackLayout>
-            <Label Text="{Binding Text}" 
-                   Style="{DynamicResource ListItemTextStyle}" />
-            <Label Text="{Binding Detail}" 
-                   Style="{DynamicResource ListItemDetailTextStyle}"/>
-          </StackLayout>
-        </ViewCell>
-      </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
-  </ListView>
+            CachingStrategy="RecycleElement" Grid.Row="0">
+            <!--Built in Cells-->
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="60*,30*,10*">
+                            <Label Text="{Binding Path=Food.Name}" Grid.Column="0" VerticalTextAlignment="Center"/>
+                            <Label Text="{Binding Path=Amount}" Grid.Column="1" VerticalTextAlignment="Center"/>
+                            <ImageButton Source="icon_trash.png" Clicked="ShowAlertToErase" CommandParameter="{Binding Path=Food}" BackgroundColor="Transparent" Grid.Column="2"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button x:Name="payButton" Style="{StaticResource MainButton}" Text="Seleccionar metodo de pago" Grid.Row="1"/>
+    </Grid>
 </ContentPage>

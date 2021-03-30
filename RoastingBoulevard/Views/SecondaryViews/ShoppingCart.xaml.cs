@@ -25,25 +25,14 @@ namespace RoastingBoulevard.Views
             mainPage.BindingContext = viewModel;
             MyListView.ItemTapped += (object sender, ItemTappedEventArgs e) =>
             {
-                // don't do anything if we just de-selected the row.
-
                 if (e.Item == null) return;
-
                 if (sender is ListView lv) lv.SelectedItem = null;
             };
+            payButton.Clicked += (object sender, EventArgs e) =>
+            {
+                Tools.Tools.PushAsync("Metodo de pago", this.Navigation, new PayView());
+            };
         }
-        /*
-        async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)
-        {
-            if (e.Item == null)
-                return;
-
-            await DisplayAlert("Item Tapped", "An item was tapped.", "OK");
-
-            //Deselect Item
-            //((ListView)sender).SelectedItem = null;
-        }
-        */
         public void AddToList(Food food)
         {
             viewModel.AddFood(food);
@@ -52,7 +41,7 @@ namespace RoastingBoulevard.Views
         public async void ShowAlertToErase(object sender, EventArgs e)
         {
             Food food = (Food)(((ImageButton)sender).CommandParameter);
-            bool answer = await DisplayAlert("Borrar comida", "¿Seguro que quieres borrarla de la cesta?" , "Si", "No");
+            bool answer = await DisplayAlert("Borrar comida", "¿Seguro que quieres borrarla de la cesta?", "Si", "No");
 
             if (answer)
             {
