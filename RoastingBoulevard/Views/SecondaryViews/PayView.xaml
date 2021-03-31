@@ -3,18 +3,20 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoastingBoulevard.Views.PayView" >
     <ContentPage.Content>
-        <Grid RowDefinitions="*,10*,10*,10*,10*,5*,10*" ColumnDefinitions="*" Style="{StaticResource MainGrid}">
-            
-            <Picker Grid.Row="1"  Title="Metodo de pago" SelectedIndex="0"  >
+        <Grid RowDefinitions="*,10*,10*,25*,10*" ColumnDefinitions="*" Style="{StaticResource MainGrid}">
+
+            <Picker x:Name="pickerMethod" Grid.Row="1"  Title="Metodo de pago" SelectedIndex="0"  >
                 <Picker.Items>
                     <x:String>Efectivo</x:String>
                     <x:String>Visa</x:String>
                     <x:String>Mastercard</x:String>
                 </Picker.Items>
             </Picker>
-            <Entry Placeholder="Numero" Grid.Row="2"/>
-            <TimePicker Grid.Row="3"/>
-            <Entry Placeholder="CVV" Grid.Row="4"/>
+            <Grid x:Name="enterDataGrid" IsVisible="false" Grid.Row="2" RowDefinitions="10*,10*,5*" >
+                <Entry Placeholder="Numero" Grid.Row="0"/>
+                <TimePicker Grid.Row="1"/>
+                <Entry Placeholder="CVV" Grid.Row="2"/>
+            </Grid>
             <Button x:Name="payButton" Style="{StaticResource MainButton}" Text="Pagar" Grid.Row="6"/>
         </Grid>
     </ContentPage.Content>

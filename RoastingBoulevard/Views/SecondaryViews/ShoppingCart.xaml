@@ -5,7 +5,7 @@
 
     <Grid RowDefinitions="80*,10*">
         <ListView x:Name="MyListView"
-            ItemsSource="{Binding Path=Foods}"
+            ItemsSource="{Binding Path=FoodsContainer}"
             CachingStrategy="RecycleElement" Grid.Row="0">
             <!--Built in Cells-->
             <ListView.ItemTemplate>

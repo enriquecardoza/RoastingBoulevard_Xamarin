@@ -45,7 +45,7 @@ namespace RoastingBoulevard.Views
             tempuser.Description_Address = Spinnertype.SelectedItem.ToString();
             Task.Run(async () =>
             {
-                bool b = await Helpers.HelperUser.InsertUser(tempuser);
+                bool b = await Helpers.HelperUserAzure.InsertUser(tempuser);
                 if (b)
                 {
                     Tools.Tools.UseActionMainThread(() =>
@@ -79,7 +79,7 @@ namespace RoastingBoulevard.Views
                 Task.Run(async () =>
                 {
                    
-                    bool b = await Helpers.HelperUser.EditUser(SharedData.user);
+                    bool b = await Helpers.HelperUserAzure.EditUser(SharedData.user);
                     if (b)
                         Tools.Tools.UseActionMainThread(() =>
                         {

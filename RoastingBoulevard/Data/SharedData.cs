@@ -9,8 +9,7 @@ namespace RoastingBoulevard.Data
         public static User user;
         public static bool loggedUser=> user != null;
         public static Delivery actualDelivery = new Delivery();
-        public static Delivery deliveringDelivery;
-        public static bool delivering => deliveringDelivery != null;
+        public static bool delivering ;
 
       
     }

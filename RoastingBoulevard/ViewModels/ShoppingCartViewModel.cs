@@ -13,19 +13,22 @@ namespace RoastingBoulevard.ViewModels
     {
         public ShoppingCartViewModel()
         {
-            Foods = new ObservableCollection<FoodDeliveryContainer>(SharedData.actualDelivery.Foods);
+            FoodsContainer = new ObservableCollection<FoodDeliveryContainer>();
         }
 
 
-        private ObservableCollection<FoodDeliveryContainer> _food;
+        private ObservableCollection<FoodDeliveryContainer> Container
+        ;
 
-        public ObservableCollection<FoodDeliveryContainer> Foods
+        public ObservableCollection<FoodDeliveryContainer> FoodsContainer
         {
-            get { return this._food; }
+            get { return this.Container
+        ; }
             set
             {
-                this._food = value;
-                OnPropertyChanged(nameof(Foods));
+                this.Container
+         = value;
+                OnPropertyChanged(nameof(FoodsContainer));
             }
         }
 
@@ -33,14 +36,14 @@ namespace RoastingBoulevard.ViewModels
         public void AddFood(Food food)
         {
             FoodDeliveryContainer cont = null;
-            if (Foods.Count > 0)
-                cont = Foods.FirstOrDefault(x => x.Food == food);
+            if (FoodsContainer.Count > 0)
+                cont = FoodsContainer.FirstOrDefault(x => x.Food == food);
             if (cont != null)
             {
-                int pos = Foods.IndexOf(cont);
+                int pos = FoodsContainer.IndexOf(cont);
                 int amoutn = cont.Amount;
-                Foods.Remove(cont);
-                Foods.Insert(pos, new FoodDeliveryContainer
+                FoodsContainer.Remove(cont);
+                FoodsContainer.Insert(pos, new FoodDeliveryContainer
                 {
                     Food = food,
                     Amount = amoutn + 1
@@ -49,7 +52,7 @@ namespace RoastingBoulevard.ViewModels
             else
             {
 
-                Foods.Add(new FoodDeliveryContainer
+                FoodsContainer.Add(new FoodDeliveryContainer
                 {
                     Food = food,
                     Amount = 1
@@ -63,20 +66,20 @@ namespace RoastingBoulevard.ViewModels
         public void RemoveFood(Food food)
         {
             FoodDeliveryContainer cont = null;
-            if (Foods.Count > 0)
-                cont = Foods.FirstOrDefault(x => x.Food == food);
+            if (FoodsContainer.Count > 0)
+                cont = FoodsContainer.FirstOrDefault(x => x.Food == food);
             if (cont != null)
             {
-                int pos = Foods.IndexOf(cont);
+                int pos = FoodsContainer.IndexOf(cont);
                 int amoutn = cont.Amount;
-                if (Foods[pos].Amount - 1 <= 0)
+                if (FoodsContainer[pos].Amount - 1 <= 0)
                 {
-                    Foods.Remove(cont);
+                    FoodsContainer.Remove(cont);
                 }
                 else
                 {
-                    Foods.Remove(cont);
-                    Foods.Insert(pos, new FoodDeliveryContainer
+                    FoodsContainer.Remove(cont);
+                    FoodsContainer.Insert(pos, new FoodDeliveryContainer
                     {
                         Food = food,
                         Amount = amoutn - 1
@@ -89,11 +92,11 @@ namespace RoastingBoulevard.ViewModels
         public void RemoveFullFood(Food food)
         {
             FoodDeliveryContainer cont = null;
-            if (Foods.Count > 0)
-                cont = Foods.FirstOrDefault(x => x.Food == food);
+            if (FoodsContainer.Count > 0)
+                cont = FoodsContainer.FirstOrDefault(x => x.Food == food);
             if (cont != null)
             {
-                Foods.Remove(cont);
+                FoodsContainer.Remove(cont);
 
                 SaveChangues();
             }
@@ -101,11 +104,11 @@ namespace RoastingBoulevard.ViewModels
 
         private void SaveChangues()
         {
-            if (Foods.Count <= 0)
+            if (FoodsContainer.Count <= 0)
             {
                 MainTabbedPage.instance.HideShoppingCart();
             }
-            OnPropertyChanged(nameof(Foods));
+            OnPropertyChanged(nameof(FoodsContainer));
         }
     }
 }

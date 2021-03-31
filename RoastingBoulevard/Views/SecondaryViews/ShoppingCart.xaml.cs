@@ -2,6 +2,7 @@
 using RoastingBoulevard.Models;
 using RoastingBoulevard.ViewModels;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
@@ -30,7 +31,22 @@ namespace RoastingBoulevard.Views
             };
             payButton.Clicked += (object sender, EventArgs e) =>
             {
-                Tools.Tools.PushAsync("Metodo de pago", this.Navigation, new PayView());
+                List<Food> foods = new List<Food>();
+                List<int> amounts = new List<int>();
+                foreach (FoodDeliveryContainer fdc in viewModel.FoodsContainer)
+                {
+                    foods.Add(fdc.Food);
+                    amounts.Add(fdc.Amount);
+                }
+
+                Delivery delivery = new Delivery {
+                    CreatedDate = DateTime.Today,
+                    UserId =1,// SharedData.user.Id,
+                    Foods = foods,
+                    Amounts = amounts,
+                    DeliveryState=0
+                };
+                Tools.Tools.PushAsync("Metodo de pago", this.Navigation, new PayView(delivery));
             };
         }
         public void AddToList(Food food)

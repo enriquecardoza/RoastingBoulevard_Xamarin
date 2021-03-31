@@ -11,9 +11,6 @@ namespace RoastingBoulevard.Helpers
 {
     class FoodHelperAzure
     {
-       
-
-
         public async Task<List<Food>> GetFoods()
         {
             List<Food> listadatos = null;

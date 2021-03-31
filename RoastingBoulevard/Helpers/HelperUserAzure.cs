@@ -2,11 +2,12 @@
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
+using RoastingBoulevard.Data;
 using RoastingBoulevard.Models;
 
 namespace RoastingBoulevard.Helpers
 {
-    public class HelperUser
+    public class HelperUserAzure
     {
         public static async Task<bool> InsertUser(User User)
         {
@@ -16,9 +17,9 @@ namespace RoastingBoulevard.Helpers
             string peticion = "/User";
             //REALIZAMOS LA LLAMADA AL API POST ENVIANDO EL CONTENIDO
             var respuesta = await MainHelper.SendPeticionPost(peticion, content);
-           // User dato = await MainHelper.DeserializarRespuesta<User>(respuesta);
             if (respuesta.IsSuccessStatusCode)
             {
+                SharedData.user.Id= await MainHelper.DeserializarRespuesta<int>(respuesta);
                 return true;
             }
             else

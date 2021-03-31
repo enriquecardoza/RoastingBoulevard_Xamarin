@@ -25,7 +25,7 @@ namespace RoastingBoulevard.Views
         {
             Task.Run(async () =>
             {
-                User fulluser = await Helpers.HelperUser.GetUser(emailEntry.Text, passwordEntry.Text);
+                User fulluser = await Helpers.HelperUserAzure.GetUser(emailEntry.Text, passwordEntry.Text);
                 if (fulluser != null)
                 {
                     Tools.Tools.UseActionMainThread(() =>

@@ -61,7 +61,7 @@ namespace RoastingBoulevard.Views
                 Task.Run(async () =>
                 {
 
-                    int b = await Helpers.HelperUser.CheckIfEmailExists(enterEmail.Text);
+                    int b = await Helpers.HelperUserAzure.CheckIfEmailExists(enterEmail.Text);
                     if (b == 1)
                     {
                         Tools.Tools.UseActionMainThread(() =>
@@ -97,7 +97,7 @@ namespace RoastingBoulevard.Views
                 {
                     if (newUser.Email != SharedData.user.Email)
                     {
-                        int b = await Helpers.HelperUser.CheckIfEmailExists(enterEmail.Text);
+                        int b = await Helpers.HelperUserAzure.CheckIfEmailExists(enterEmail.Text);
                         if (b == 1)
                         {
                             await EditUserAndReturnToRoot(newUser);
@@ -121,7 +121,7 @@ namespace RoastingBoulevard.Views
         private async Task<bool> EditUserAndReturnToRoot(User newUser)
         {
             
-            bool b = await Helpers.HelperUser.EditUser(newUser);
+            bool b = await Helpers.HelperUserAzure.EditUser(newUser);
             if (b)
                 Tools.Tools.UseActionMainThread(() =>
                 {
