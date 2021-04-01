@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoastingBoulevard.Views.SecondaryViews.DeliveringView">
+    <ContentPage.Content>
+        <Grid RowDefinitions="10*,40*,10*,10*,20*" ColumnDefinitions="100*" x:Name="mainGrid">
+
+            <Label Text="Estado de la entrega"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand" Grid.Row="0" FontSize="Title" FontAttributes="Bold" BackgroundColor="PeachPuff" VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+            <Image Source="giphy.gif" Grid.Row="1" HorizontalOptions="FillAndExpand"/>
+            <Label Text="{Binding Estado}"
+                VerticalOptions="FillAndExpand" 
+                HorizontalOptions="FillAndExpand" Grid.Row="2" FontSize="Title" FontAttributes="Bold"  VerticalTextAlignment="Center" HorizontalTextAlignment="Center"/>
+
+            <ProgressBar Grid.Row="3" Margin="40" Progress="0.5" ProgressColor="#CE8D41"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

@@ -177,4 +177,7 @@
   <ItemGroup>
     <BundleResource Include="Resources\icon_trash.png" />
   </ItemGroup>
+  <ItemGroup>
+    <BundleResource Include="Resources\giphy.gif" />
+  </ItemGroup>
 </Project>

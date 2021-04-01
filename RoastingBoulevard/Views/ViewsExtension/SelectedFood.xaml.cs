@@ -46,9 +46,19 @@ namespace RoastingBoulevard.Views
 
         private async void BtAdd_Clicked(object sender, EventArgs e)
         {
+            if (SharedData.loggedUser)
+            {
+                MainTabbedPage.instance.ShowShoppingCart();
+                ShoppingCart.instance.AddToList(foodShowed);
+            }
+            else
+            {
+                //Tools.Tools.UseActionMainThread(() => { });
+                await DisplayAlert("Necesita estar registrado", "por favor inicie sesión o registrese", "Entendido");
+                MainTabbedPage.instance.ChangueSelectedTab(2);
+            }
+
             await callback.Invoke(true);
-            MainTabbedPage.instance.ShowShoppingCart();
-            ShoppingCart.instance.AddToList(foodShowed);
         }
 
         private async void BtClose_Clicked(object sender, EventArgs e)

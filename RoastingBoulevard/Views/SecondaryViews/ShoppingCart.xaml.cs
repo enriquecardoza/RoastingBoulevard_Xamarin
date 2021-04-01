@@ -41,7 +41,7 @@ namespace RoastingBoulevard.Views
 
                 Delivery delivery = new Delivery {
                     CreatedDate = DateTime.Today,
-                    UserId =1,// SharedData.user.Id,
+                    UserId = SharedData.user.Id,
                     Foods = foods,
                     Amounts = amounts,
                     DeliveryState=0

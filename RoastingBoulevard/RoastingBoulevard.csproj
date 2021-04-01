@@ -24,6 +24,9 @@
     <Folder Include="Views\ToDo\" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Views\SecondaryViews\DeliveringView.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Views\SecondaryViews\PayView.xaml">
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>

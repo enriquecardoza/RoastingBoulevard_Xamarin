@@ -58,8 +58,7 @@ namespace RoastingBoulevard.Views
         }
         public void ChangueSelectedTab(int index)
         {
-            mainTabPage.TabIndex = 2;
-
+            mainTabPage.TabIndex = index;
             Page p = mainTabPage.Children[index];
             mainTabPage.SelectedItem = p;
         }
