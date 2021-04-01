@@ -28,8 +28,10 @@ namespace RoastingBoulevard.Views
                 Tools.Tools.UseActionMainThread(()=> {
                     foreach (Category cat in categories)
                     {
-                        FoodListPage cp = new FoodListPage(cat.Foods);
-                        cp.Title = cat.Name;
+                        FoodListPage cp = new FoodListPage(cat.Foods)
+                        {
+                            Title = cat.Name
+                        };
                         tabPageDishes.Children.Add(cp);
 
                     }
@@ -41,9 +43,5 @@ namespace RoastingBoulevard.Views
 
         }
 
-        public static async Task AletAsync(String texto)
-        {
-            await instance.DisplayAlert("Alert", texto, "OK");
-        }
     }
 }

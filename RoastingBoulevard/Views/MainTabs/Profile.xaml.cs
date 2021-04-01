@@ -33,6 +33,7 @@ namespace RoastingBoulevard.Views
                 SharedData.user = null;
                 MainTabbedPage.instance.ChangueProfileToLoginpage();
             };
+            saludo.Text ="Hola"+ SharedData.user.Name;
         }
     }
 }

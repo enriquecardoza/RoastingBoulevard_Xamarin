@@ -30,8 +30,8 @@ namespace RoastingBoulevard.Views
                 {
                     Tools.Tools.UseActionMainThread(() =>
                     {
-                        MainTabbedPage.instance.ChangueLoginToProfilePage();
                         SharedData.user = fulluser;
+                        MainTabbedPage.instance.ChangueLoginToProfilePage();
                         errorInfo.Text = "";
                     });
                 }

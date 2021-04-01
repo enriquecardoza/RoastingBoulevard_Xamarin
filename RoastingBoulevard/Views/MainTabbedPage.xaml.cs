@@ -1,4 +1,5 @@
 ﻿using RoastingBoulevard.ViewModels;
+using RoastingBoulevard.Views.SecondaryViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,11 +16,11 @@ namespace RoastingBoulevard.Views
     {
         public static MainTabbedPage instance;
         private bool shoppingCartShowed = false;
+
+        ShoppingCart shoppingCartpage;
         public MainTabbedPage()
         {
             InitializeComponent();
-            MainTabbedPageViewModel vm=new MainTabbedPageViewModel();
-            mainTabPage.BindingContext = vm;
             mainTabPage.SelectedItem = 0;
             instance = this;
 
@@ -45,16 +46,17 @@ namespace RoastingBoulevard.Views
         {
             if (shoppingCartShowed)
                 return;
-            ShoppingCart p = new ShoppingCart();
-            mainTabPage.Children.Insert(2,p);
+            shoppingCartpage = new ShoppingCart();
+            mainTabPage.Children.Insert(2, shoppingCartpage);
             shoppingCartShowed = true;
         }
         public void HideShoppingCart()
         {
             if (!shoppingCartShowed)
                 return;
-            mainTabPage.Children.Remove(mainTabPage.Children.OfType<ShoppingCart>().First());
+            mainTabPage.Children.Remove(shoppingCartpage);
             shoppingCartShowed = false;
+            mainTabPage.SelectedItem = mainTabPage.Children[0];
         }
         public void ChangueSelectedTab(int index)
         {
@@ -62,6 +64,5 @@ namespace RoastingBoulevard.Views
             Page p = mainTabPage.Children[index];
             mainTabPage.SelectedItem = p;
         }
-
     }
 }

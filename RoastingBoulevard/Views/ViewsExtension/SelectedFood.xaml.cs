@@ -13,12 +13,10 @@ namespace RoastingBoulevard.Views
     public partial class SelectedFood
     {
         private Func<bool, Task> callback;
-        private readonly IAlertDialogService alertDialogService;
         Food foodShowed;
         public SelectedFood(Food food, Func<bool, Task> callback)
         {
             InitializeComponent();
-            alertDialogService = DependencyService.Get<IAlertDialogService>();
             foodName.Text = food.Name;
             foodDescription.Text = food.Description;
             foodPhoto.Source = food.Photo;

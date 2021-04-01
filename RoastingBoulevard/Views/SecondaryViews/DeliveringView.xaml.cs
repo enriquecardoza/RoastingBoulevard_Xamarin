@@ -13,36 +13,62 @@ using Xamarin.Forms.Xaml;
 namespace RoastingBoulevard.Views.SecondaryViews
 {
     [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class DeliveringView : ContentPage
+    public partial class DeliveringView 
     {
-
-        DeliveringViewModel dvm = new DeliveringViewModel();
+        private Func<bool, Task> callback;
+        DeliveringViewModel dvm;
         public DeliveringView()
         {
             InitializeComponent();
+            dvm = new DeliveringViewModel();
             mainGrid.BindingContext = dvm;
+            gif.IsAnimationPlaying = true;
         }
 
-        public void UpdateData(int estado)
+        public DeliveringView(Func<bool, Task> callback)
+        {
+            InitializeComponent();
+            dvm = new DeliveringViewModel();
+            mainGrid.BindingContext = dvm;
+            FrContent.Opacity = 1;
+            this.callback = callback;
+            UpdateData(0);
+            EmpezarTimer();
+        }
+        public void UpdateData(float estado)
         {
             dvm.Estado = ((Delivery.DeliveryStateEnum)estado).ToString();
-            dvm.Progreso = estado/Enum.GetNames(typeof(Delivery.DeliveryStateEnum)).Length;
+            float progreso=(float)((estado + 1f) / Enum.GetNames(typeof(Delivery.DeliveryStateEnum)).Length);
+            dvm.Progreso = progreso;
 
         }
 
         public void EmpezarTimer()
         {
-            Task.Run(async () => {
+            Task.Run(async () =>
+            {
                 UpdateData(0);
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 UpdateData(1);
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 UpdateData(2);
-                Thread.Sleep(1000);
+                Thread.Sleep(2000);
                 UpdateData(3);
+                Thread.Sleep(10000);
+                await callback.Invoke(false);
+                Tools.Tools.UseActionMainThread(() =>
+                {
+                    DisplayAlert("Tu pedido", "Tu pedido ya deberia de estar aqui ", "Entendido");
+                });
             });
         }
-        
 
+        public void Close(object sender, EventArgs e)
+        {
+            Task.Run(async () =>
+            {
+                await callback.Invoke(false);
+            });
+        }
     }
 }

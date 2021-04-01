@@ -6,7 +6,7 @@
         <Grid RowDefinitions="15*,3*,20*,30*">
             <Grid RowDefinitions="*"
         ColumnDefinitions="70*,20*" BackgroundColor="#B8936E" Grid.Row="0" Padding="10">
-                <Label Text="Hola" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextDarkBackground}" FontSize="24" FontAttributes="Bold" Padding="10" x:Name="saludo" VerticalOptions="CenterAndExpand"/>
+                <Label Text="Hola" x:Name="saludo" Grid.Row="0" Grid.Column="0" Style="{StaticResource TextDarkBackground}" FontSize="24" FontAttributes="Bold" Padding="10" VerticalOptions="CenterAndExpand" VerticalTextAlignment="Center"/>
                 <Image Source="icon.png" Grid.RowSpan="2" Grid.Column="1"/>
 
             </Grid>

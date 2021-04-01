@@ -37,21 +37,9 @@ namespace RoastingBoulevard.Views
 
             if (food == null)
                 return;
-            bool b = await alertDialogService.ShowDialogFood(food);
+            await alertDialogService.ShowDialogFood(food);
 
-            if (b)
-            {
-                comida = food;
-            }
         }
-        private Food comida;
 
-
-        /*
-        private async void BtConfirmation_Clicked(object sender, EventArgs e)
-        {
-            bool result = await alertDialogService.ShowDialogConfirmationAsync("Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed venenatis.", $"Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque pulvinar imperdiet pharetra. Etiam id laoreet turpis. Sed a sodales nibh, a finibus ipsum. Phasellus nisl magna, congue ac risus in, rutrum faucibus tellus. Suspendisse non vestibulum felis, eget luctus nisi. Etiam efficitur tristique ipsum, eget blandit purus maximus eget. Vestibulum non elit magna. Cras dictum at enim sed hendrerit. Donec commodo diam eget mi commodo, sed consequat tellus iaculis. Pellentesque elementum enim odio, at ultrices nunc venenatis sit amet. Nulla venenatis felis id dui rutrum, et maximus nulla molestie. Aenean convallis, diam a aliquam porttitor, sapien turpis venenatis purus, ut cursus orci sapien sit amet orci.{Environment.NewLine}¿Desea continuar?", "No", "Si");
-            LbResult.Text = result ? "Resultado confirmación: Si" : "Resultado confirmación: No";
-        }*/
     }
 }

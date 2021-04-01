@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoastingBoulevard.Views.MainPage"
-             Title="Inicio">
+             Title="Inicio"  xmlns:maps="clr-namespace:Xamarin.Forms.Maps;assembly=Xamarin.Forms.Maps">
 
     <ContentPage.Resources>
 
@@ -20,7 +20,37 @@
         ColumnDefinitions="*"  Grid.Row="1" Style="{StaticResource MainGrid}">
             <Button x:Name="startOrderButton" Text="Empezar orden" Style="{StaticResource MainButton}" Grid.Row="0"  />
             <Label Text="Donde estamos?" Grid.Row="1" Style="{StaticResource TextClearBackground}" />
-            <BoxView Grid.Row="2" BackgroundColor="AliceBlue"/>
+            <!--<BoxView Grid.Row="2" BackgroundColor="AliceBlue"/> -->
+            <maps:Map x:Name="map" Grid.Row="2">
+                <x:Arguments>
+                    <maps:MapSpan>
+                        <x:Arguments>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>40.294237</x:Double>
+                                    <x:Double>-3.746450</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                            <x:Double>0.01</x:Double>
+                            <x:Double>0.01</x:Double>
+                        </x:Arguments>
+                    </maps:MapSpan>
+                </x:Arguments>
+                <maps:Map.Pins>
+                    <maps:Pin Label="Centro getafe"
+                       Address="Cftic getafe"
+                       Type="Place">
+                        <maps:Pin.Position>
+                            <maps:Position>
+                                <x:Arguments>
+                                    <x:Double>40.294237</x:Double>
+                                    <x:Double>-3.746450</x:Double>
+                                </x:Arguments>
+                            </maps:Position>
+                        </maps:Pin.Position>
+                    </maps:Pin>
+                </maps:Map.Pins>
+            </maps:Map>
             <Label Text="Calle falsa n 123" Grid.Row="3"  VerticalTextAlignment="Center" Style="{StaticResource TextClearBackground}"/>
             <Label Text="Springfield 24530" Grid.Row="4"  VerticalTextAlignment="Center" Style="{StaticResource TextClearBackground}"/>
         </Grid>

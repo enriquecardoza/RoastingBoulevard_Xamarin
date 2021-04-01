@@ -15,7 +15,7 @@ namespace RoastingBoulevard.Helpers
         {
             List<Food> listadatos = null;
             //CREAMOS LA PETICION
-            string peticion = MainHelper.mainRoute+"/food";
+            string peticion = MainHelper.MainRoute+"/food";
             var uri = new Uri(string.Format(peticion, string.Empty));
             var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)
@@ -31,7 +31,7 @@ namespace RoastingBoulevard.Helpers
         {
             Food food = null;
             //CREAMOS LA PETICION
-            string peticion = MainHelper.mainRoute + $"/{id}";
+            string peticion = MainHelper.MainRoute + $"/{id}";
             var uri = new Uri(string.Format(peticion, string.Empty));
             var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)

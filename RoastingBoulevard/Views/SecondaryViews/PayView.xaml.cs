@@ -1,6 +1,7 @@
 ﻿using RoastingBoulevard.Data;
 using RoastingBoulevard.Helpers;
 using RoastingBoulevard.Models;
+using RoastingBoulevard.Tools;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,17 +16,21 @@ namespace RoastingBoulevard.Views
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class PayView : ContentPage
     {
+        private readonly IAlertDialogService alertDialogService;
         public PayView()
         {
             InitializeComponent();
-
         }
         public PayView(Delivery delivery)
         {
             InitializeComponent();
 
+            pickerMethod.SelectedIndex = 0;
+            pickerMethod.SelectedItem = pickerMethod.Items[0];
             pickerMethod.SelectedIndexChanged += ChangueEnterDataVisibility();
             payButton.Clicked += Pay(delivery);
+            enterDataGrid.IsVisible = false;
+            alertDialogService = DependencyService.Get<IAlertDialogService>();
         }
 
         private EventHandler ChangueEnterDataVisibility()
@@ -47,11 +52,12 @@ namespace RoastingBoulevard.Views
         {
             return async (object sender, EventArgs e) =>
             {
+                await Navigation.PopToRootAsync();
+                MainTabbedPage.instance.HideShoppingCart();
                 delivery.PaymentMethod = pickerMethod.SelectedIndex;
-                //subir datos
-                //cambiar pestaña de la cesta por la del pedido
                 await DeliveryHelperAzure.InsertDelivery(delivery);
                 SharedData.actualDelivery = delivery;
+                await alertDialogService.ShowDialogDelivering();
                 Tools.Tools.PopToRootAsync(Navigation);
             };
         }

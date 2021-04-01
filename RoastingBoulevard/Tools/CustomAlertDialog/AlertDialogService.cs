@@ -2,6 +2,7 @@
 using RoastingBoulevard.Models;
 using RoastingBoulevard.Tools;
 using RoastingBoulevard.Views;
+using RoastingBoulevard.Views.SecondaryViews;
 using System.Threading.Tasks;
 using Xamarin.Forms;
 
@@ -51,6 +52,15 @@ namespace RoastingBoulevard.Tools
             taskCompletionSource = new TaskCompletionSource<bool>();
             task = taskCompletionSource.Task;
             SelectedFood alertDialog = new SelectedFood(food, Callback);
+            await Application.Current.MainPage.Navigation.PushPopupAsync(alertDialog);
+            return await task;
+        }
+
+        public async Task<bool> ShowDialogDelivering()
+        {
+            taskCompletionSource = new TaskCompletionSource<bool>();
+            task = taskCompletionSource.Task;
+            DeliveringView alertDialog = new DeliveringView(Callback);
             await Application.Current.MainPage.Navigation.PushPopupAsync(alertDialog);
             return await task;
         }

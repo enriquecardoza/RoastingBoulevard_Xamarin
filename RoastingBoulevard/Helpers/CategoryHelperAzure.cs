@@ -12,7 +12,7 @@ namespace RoastingBoulevard.Helpers
         {
             List<Category> listadatos = null;
             //CREAMOS LA PETICION
-            string peticion = MainHelper.mainRoute+"/Category";
+            string peticion = MainHelper.MainRoute+"/Category";
             var uri = new Uri(string.Format(peticion, string.Empty));
             var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)
@@ -27,7 +27,7 @@ namespace RoastingBoulevard.Helpers
         {
             List<Category> listadatos = null;
             //CREAMOS LA PETICION
-            string peticion = MainHelper.mainRoute + "/Category/GetCategoriesWithFoods";
+            string peticion = MainHelper.MainRoute + "/Category/GetCategoriesWithFoods";
             var uri = new Uri(string.Format(peticion, string.Empty));
             var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)
@@ -42,7 +42,7 @@ namespace RoastingBoulevard.Helpers
         {
             Category Category = null;
             //CREAMOS LA PETICION
-            string peticion = MainHelper.mainRoute + $"/{id}";
+            string peticion = MainHelper.MainRoute + $"/{id}";
             var uri = new Uri(string.Format(peticion, string.Empty));
             var respuesta = await MainHelper.MainClient.GetAsync(uri);
             if (respuesta.IsSuccessStatusCode)

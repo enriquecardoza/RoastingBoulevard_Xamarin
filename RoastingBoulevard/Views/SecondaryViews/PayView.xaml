@@ -5,7 +5,7 @@
     <ContentPage.Content>
         <Grid RowDefinitions="5*,10*,20*,20*,5*" ColumnDefinitions="*" Style="{StaticResource MainGrid}">
 
-            <Picker x:Name="pickerMethod" Grid.Row="1"  Title="Metodo de pago" SelectedIndex="0" SelectedItem="Efectivo" >
+            <Picker x:Name="pickerMethod" Grid.Row="1"  Title="Metodo de pago">
                 <Picker.Items>
                     <x:String>Efectivo</x:String>
                     <x:String>Visa</x:String>

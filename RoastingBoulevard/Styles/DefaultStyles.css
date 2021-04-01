@@ -1,4 +1,4 @@
-﻿
+﻿/*
 label {
     padding: 10;
     VerticalOptions: Center;
@@ -26,7 +26,7 @@ Grid.SubGrid {
     row-gap: 10;
     padding:10;
 }
-
+*/
 /*<color name="paleBrown">#B8936E</color> PeachPuff 
     <color name="darkBrown">#663425</color>
     <color name="transparent">#00000000 </color>

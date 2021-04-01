@@ -25,7 +25,7 @@ namespace RoastingBoulevard.iOS
             Rg.Plugins.Popup.Popup.Init();
             global::Xamarin.Forms.Forms.Init();
             LoadApplication(new App());
-
+            Xamarin.FormsMaps.Init();
             return base.FinishedLaunching(app, options);
         }
     }

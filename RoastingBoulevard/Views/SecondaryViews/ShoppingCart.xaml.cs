@@ -43,8 +43,7 @@ namespace RoastingBoulevard.Views
                     CreatedDate = DateTime.Today,
                     UserId = SharedData.user.Id,
                     Foods = foods,
-                    Amounts = amounts,
-                    DeliveryState=0
+                    Amounts = amounts
                 };
                 Tools.Tools.PushAsync("Metodo de pago", this.Navigation, new PayView(delivery));
             };

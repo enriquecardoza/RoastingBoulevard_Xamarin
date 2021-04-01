@@ -14,6 +14,8 @@ namespace RoastingBoulevard.Models
         public int PaymentMethod { get; set; }
         [JsonProperty("UserId")]
         public int UserId { get; set; }
+        [JsonProperty("DeliveryState")]
+        public int DeliveryState { get; set; }
         [JsonProperty("Foods")]
         public List<Food> Foods { get { return _foods; } set { _foods = value; } }
         private List<Food> _foods = new List<Food>();
@@ -22,7 +24,7 @@ namespace RoastingBoulevard.Models
         private List<int> _amounts = new List<int>();
         public enum DeliveryStateEnum
         {
-            Recivido = 0, Cocinando = 1, Repartiendo = 2, Entregado = 3
+            Recibido = 0, Cocinando = 1, Repartiendo = 2, Entregado = 3
         }
 
         public enum Method
