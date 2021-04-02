@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -32,6 +32,8 @@ namespace RoastingBoulevard.Views
             {
                 SharedData.user = null;
                 MainTabbedPage.instance.ChangueProfileToLoginpage();
+                Preferences.Remove("userEmail");
+                Preferences.Remove("userPass");
             };
             saludo.Text ="Hola "+ SharedData.user.Name;
         }
