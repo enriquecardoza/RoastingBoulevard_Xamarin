@@ -1,4 +1,5 @@
-﻿using System;
+﻿using RoastingBoulevard.ViewModels;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -15,6 +16,14 @@ namespace RoastingBoulevard.Views
         public DeliveriesList()
         {
             InitializeComponent();
+            MainGrid.BindingContext = new DeliveryListViewModel();
+            MainGrid.ItemTapped += (object sender, ItemTappedEventArgs e) =>
+            {
+                if (e.Item == null) 
+                    return;
+                if (sender is ListView lv) 
+                    lv.SelectedItem = null;
+            };
         }
     }
 }

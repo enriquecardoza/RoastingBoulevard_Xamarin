@@ -38,7 +38,7 @@ namespace RoastingBoulevard.Views.SecondaryViews
         public void UpdateData(float estado)
         {
             dvm.Estado = ((Delivery.DeliveryStateEnum)estado).ToString();
-            float progreso=(float)((estado + 1f) / Enum.GetNames(typeof(Delivery.DeliveryStateEnum)).Length);
+            float progreso=(float)((estado) / Enum.GetNames(typeof(Delivery.DeliveryStateEnum)).Length);
             dvm.Progreso = progreso;
 
         }

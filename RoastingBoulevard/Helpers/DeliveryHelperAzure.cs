@@ -33,7 +33,7 @@ namespace RoastingBoulevard.Helpers
         {
             ByteArrayContent content = MainHelper.SerializarDato(idUser);
             List<Delivery> listadatos =new List<Delivery>();
-            string peticion = $"/Delivery/GetDeliveriesFromUser";
+            string peticion = $"/Delivery/GetDeliveriesFromUser/{idUser}";
             var respuesta = await MainHelper.SendPeticionPost(peticion, content);
             if (respuesta.IsSuccessStatusCode)
             {

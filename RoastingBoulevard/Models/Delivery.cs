@@ -32,5 +32,19 @@ namespace RoastingBoulevard.Models
             Efectivo = 0, MasterCard = 1, Visa = 2
         }
 
+        public float TotalPrice
+        {
+            get
+            {
+                float price = 0;
+                for (int i = 0; i < Foods.Count; i++)
+                {
+                    price += (Amounts[i] * Foods[i].Price);
+                }
+
+                return price;
+            }
+        }
+
     }
 }

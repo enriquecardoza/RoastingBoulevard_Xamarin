@@ -1,11 +1,13 @@
-﻿using RoastingBoulevard.ViewModels;
+﻿using RoastingBoulevard.Data;
+using RoastingBoulevard.Models;
+using RoastingBoulevard.ViewModels;
 using RoastingBoulevard.Views.SecondaryViews;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -23,7 +25,19 @@ namespace RoastingBoulevard.Views
             InitializeComponent();
             mainTabPage.SelectedItem = 0;
             instance = this;
-
+            if (Preferences.ContainsKey("userEmail") && Preferences.ContainsKey("userPass"))
+            {
+                Task.Run(async () =>
+                {
+                    User fulluser = await Helpers.HelperUserAzure.GetUser(Preferences.Get("userEmail", ""), Preferences.Get("userPass", ""));
+                    SharedData.user = fulluser;
+                    Tools.Tools.UseActionMainThread(() =>
+                    {
+                        ChangueLoginToProfilePage();
+                    }
+                        );
+                });
+            }
         }
 
         public void ChangueLoginToProfilePage()

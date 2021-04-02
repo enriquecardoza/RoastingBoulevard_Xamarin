@@ -3,6 +3,7 @@ using RoastingBoulevard.Models;
 using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 
 namespace RoastingBoulevard.Views
@@ -33,6 +34,8 @@ namespace RoastingBoulevard.Views
                         SharedData.user = fulluser;
                         MainTabbedPage.instance.ChangueLoginToProfilePage();
                         errorInfo.Text = "";
+                        Preferences.Set("userEmail", SharedData.user.Email);
+                        Preferences.Set("userPass", SharedData.user.Password);
                     });
                 }
                 else
@@ -43,7 +46,6 @@ namespace RoastingBoulevard.Views
                     });
                 }
             });
-
         }
 
 

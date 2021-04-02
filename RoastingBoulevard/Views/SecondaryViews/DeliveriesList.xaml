@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoastingBoulevard.Views.DeliveriesList">
+
+    <ContentPage.Content >
+        <Grid RowDefinitions="5*,80*" RowSpacing="0">
+        <Grid ColumnDefinitions="*,*" Padding="10" Grid.Row="0">
+            <Label Text="Fecha" Grid.Column="0"/>
+            <Label Text="Precio total" Grid.Column="1"/>
+        </Grid>
+            <ListView x:Name="MainGrid" ItemsSource="{Binding Deliveries}" Grid.Row="1">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <Grid ColumnDefinitions="*,*" Padding="10">
+                            <Label Text="{Binding CreatedDate, StringFormat='{0:d-M-yyyy}'}" Grid.Column="0"/>
+                                <Label Text="{Binding TotalPrice, StringFormat='{0}€'}" Grid.Column="1"/>
+                        </Grid>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>

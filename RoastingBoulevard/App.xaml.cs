@@ -1,5 +1,9 @@
 ﻿using System;
+using System.Threading.Tasks;
+using RoastingBoulevard.Data;
+using RoastingBoulevard.Models;
 using RoastingBoulevard.Views;
+using Xamarin.Essentials;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -12,6 +16,7 @@ namespace RoastingBoulevard
             InitializeComponent();
 
             MainPage = new NavigationPage(new MainTabbedPage());
+
         }
 
         protected override void OnStart()
