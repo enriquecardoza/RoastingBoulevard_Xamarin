@@ -45,15 +45,16 @@ namespace RoastingBoulevard.Views
             tempuser.Description_Address = Spinnertype.SelectedItem.ToString();
             Task.Run(async () =>
             {
-                bool b = await Helpers.HelperUserAzure.InsertUser(tempuser);
-                if (b)
+                int id = await Helpers.HelperUserAzure.InsertUser(tempuser);
+                if (id>=0)
                 {
+                    tempuser.Id = id;
                     Tools.Tools.UseActionMainThread(() =>
                     {
                         errortext.Text = "Datos guardados";
+                        Tools.Tools.PopToRootAsync(this.Navigation);
+                        MainTabbedPage.instance.ChangueLoginToProfilePage();
                     });
-                    Tools.Tools.PopToRootAsync(this.Navigation);
-                    MainTabbedPage.instance.ChangueLoginToProfilePage();
                     SharedData.user = tempuser;
                 }
                 else

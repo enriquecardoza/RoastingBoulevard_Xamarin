@@ -9,7 +9,7 @@ namespace RoastingBoulevard.Helpers
 {
     public class HelperUserAzure
     {
-        public static async Task<bool> InsertUser(User User)
+        public static async Task<int> InsertUser(User User)
         {
             User.Id = 20;
             ByteArrayContent content = MainHelper.SerializarDato(User);
@@ -19,12 +19,12 @@ namespace RoastingBoulevard.Helpers
             var respuesta = await MainHelper.SendPeticionPost(peticion, content);
             if (respuesta.IsSuccessStatusCode)
             {
-                SharedData.user.Id= await MainHelper.DeserializarRespuesta<int>(respuesta);
-                return true;
+                int id= await MainHelper.DeserializarRespuesta<int>(respuesta);
+                return id;
             }
             else
             {
-                return false;
+                return -1;
             }
         }
         public static async Task<User> GetUser(string email,string password)

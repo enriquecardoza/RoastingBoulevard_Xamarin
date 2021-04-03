@@ -30,12 +30,17 @@ namespace RoastingBoulevard.Views
                 Task.Run(async () =>
                 {
                     User fulluser = await Helpers.HelperUserAzure.GetUser(Preferences.Get("userEmail", ""), Preferences.Get("userPass", ""));
-                    SharedData.user = fulluser;
-                    Tools.Tools.UseActionMainThread(() =>
+                    if (fulluser != null)
                     {
-                        ChangueLoginToProfilePage();
+                        SharedData.user = fulluser;
+                        Tools.Tools.UseActionMainThread(() =>
+                        {
+                            Profile p = new Profile();
+                            mainTabPage.Children.Add(p);
+                            mainTabPage.Children.Remove(mainTabPage.Children.OfType<Login>().First());
+                        }
+                            );
                     }
-                        );
                 });
             }
         }

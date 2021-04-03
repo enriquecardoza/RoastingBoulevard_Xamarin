@@ -15,8 +15,8 @@ namespace RoastingBoulevard.Views.SecondaryViews
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class DeliveringView 
     {
-        private Func<bool, Task> callback;
-        DeliveringViewModel dvm;
+        private readonly Func<bool, Task> callback;
+        readonly DeliveringViewModel dvm;
         public DeliveringView()
         {
             InitializeComponent();
@@ -49,11 +49,11 @@ namespace RoastingBoulevard.Views.SecondaryViews
             {
                 UpdateData(0);
                 Thread.Sleep(2000);
-                UpdateData(1);
+                UpdateData(1f);
                 Thread.Sleep(2000);
-                UpdateData(2);
+                UpdateData(2f);
                 Thread.Sleep(2000);
-                UpdateData(3);
+                UpdateData(3f);
                 Thread.Sleep(10000);
                 await callback.Invoke(false);
                 Tools.Tools.UseActionMainThread(() =>

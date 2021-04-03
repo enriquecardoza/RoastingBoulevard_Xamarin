@@ -35,7 +35,8 @@ namespace RoastingBoulevard.Views
                 Preferences.Remove("userEmail");
                 Preferences.Remove("userPass");
             };
-            saludo.Text ="Hola "+ SharedData.user.Name;
+            if (SharedData.user != null)
+                saludo.Text = "Hola " + SharedData.user.Name;
         }
     }
 }
